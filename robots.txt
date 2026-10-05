@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://estratotech.cl/sitemap.xml
