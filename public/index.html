@@ -30,6 +30,11 @@
             .caso-card { padding: 28px; }
         }
     </style>
+<style>
+        .wa-float { position: fixed; right: 20px; bottom: 20px; z-index: 50; display: inline-flex; align-items: center; gap: 10px; background: #25d366; color: #0b1422; font-weight: 700; font-size: 15px; text-decoration: none; padding: 14px 20px; border-radius: 999px; box-shadow: 0 8px 24px rgba(0,0,0,0.35); }
+        .wa-float:hover { background: #3be07a; }
+        @media (max-width: 600px) { .wa-float { padding: 14px; right: 16px; bottom: 16px; } .wa-float span { display: none; } }
+    </style>
 </head>
 <body style="margin: 0; font-family: 'Manrope', sans-serif; color: #ffffff; background: #0b1422; line-height: 1.5;">
 
@@ -294,6 +299,7 @@
                 <h2 style="margin: 0; font-family: 'Sora', sans-serif; font-weight: 700; font-size: clamp(32px, 4.4vw, 56px); letter-spacing: -1.4px; line-height: 1.05;">Cuéntanos cómo podemos ayudarte</h2>
                 <p style="margin: 0; font-size: 18px; line-height: 1.6; max-width: 460px;">Te respondemos con una demo de Bitácora o una propuesta de asesoría especializada.</p>
                 <p style="margin: 0; font-size: 16px;">También puedes escribirnos a <a href="mailto:contacto@estratotech.cl" style="color: #0b1422; font-weight: 700;">contacto@estratotech.cl</a></p>
+                <div><a href="https://wa.me/56978099416?text=Hola%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Bit%C3%A1cora." target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 10px; background: #0b1422; color: #ffffff; font-weight: 700; text-decoration: none; padding: 14px 24px; border-radius: 999px; font-size: 16px;"><span style="color: #25d366; display: inline-flex;"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M4 3h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H9.5L5 21.5V17H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/></svg></span>Escríbenos por WhatsApp · +56 9 7809 9416</a></div>
             </div>
             <div style="flex: 1 1 420px; background: #ffffff; border-radius: 24px; padding: 32px; box-sizing: border-box;">
                 <form id="contactForm" style="display: flex; flex-direction: column; gap: 16px;">
@@ -339,13 +345,21 @@
         <div style="max-width: 1240px; margin: 0 auto; padding: 36px 32px; box-sizing: border-box; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px;">
             <div style="font-size: 14px;">© 2026 EstratoTech SpA — RUT 78.520.345-3 · Santiago, Chile</div>
             <div style="display: flex; gap: 22px; font-size: 14px;">
+                <a href="https://wa.me/56978099416?text=Hola%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Bit%C3%A1cora." target="_blank" rel="noopener" style="color: #b6c3d4; text-decoration: none;">WhatsApp</a>
+                <!-- TODO LinkedIn: pegar el enlace real y descomentar
+                <a href="https://www.linkedin.com/company/REEMPLAZAR" target="_blank" rel="noopener" style="color: #b6c3d4; text-decoration: none;">LinkedIn</a>
+                -->
+                <!-- TODO Instagram (más adelante): pegar el enlace real y descomentar
+                <a href="https://www.instagram.com/REEMPLAZAR" target="_blank" rel="noopener" style="color: #b6c3d4; text-decoration: none;">Instagram</a>
+                -->
                 <a href="/terminos" style="color: #b6c3d4; text-decoration: none;">Términos</a>
                 <a href="/privacidad" style="color: #b6c3d4; text-decoration: none;">Privacidad</a>
             </div>
         </div>
     </div>
+    <a class="wa-float" href="https://wa.me/56978099416?text=Hola%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Bit%C3%A1cora." target="_blank" rel="noopener" aria-label="Escribir por WhatsApp"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M4 3h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H9.5L5 21.5V17H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/></svg><span>WhatsApp</span></a>
 
-<script>
+    <script>
         // Turnstile (anti-spam de Cloudflare): pegar aquí la "site key" pública cuando se cree el widget. Vacío = sin Turnstile.
         const TURNSTILE_SITE_KEY = '';
         const MAIL_RESPALDO = 'contacto@estratotech.cl';
