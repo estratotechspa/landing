@@ -1,7 +1,7 @@
-// Cloudflare Pages Function: POST /api/contacto
+// Cloudflare Worker (con assets estáticos): POST /api/contacto
 // Recibe el formulario del landing y lo envía por correo con Resend.
 //
-// Variables de entorno (Pages > Settings > Variables and Secrets; NUNCA en el repo):
+// Variables (Worker > Settings > Variables and Secrets; NUNCA en el repo):
 //   RESEND_API_KEY    (secreto)  API key de Resend con permiso solo de envío
 //   TURNSTILE_SECRET  (secreto)  opcional; si existe, se valida el token de Turnstile
 //   MAIL_TO           (texto)    opcional; por defecto contacto@estratotech.cl
@@ -21,13 +21,13 @@ function origenPermitido(request) {
   if (!origin) return true; // llamadas sin Origin (no navegador) igual pasan por las demás validaciones
   try {
     const host = new URL(origin).hostname;
-    return host === 'estratotech.cl' || host.endsWith('.estratotech.cl') || host.endsWith('.pages.dev');
+    return host === 'estratotech.cl' || host.endsWith('.estratotech.cl') || host.endsWith('.workers.dev');
   } catch {
     return false;
   }
 }
 
-export async function onRequestPost({ request, env }) {
+async function handleContacto(request, env) {
   if (!origenPermitido(request)) return json({ ok: false, error: 'origen' }, 403);
 
   let body;
@@ -95,6 +95,14 @@ export async function onRequestPost({ request, env }) {
   return json({ ok: true });
 }
 
-export async function onRequest() {
-  return json({ ok: false, error: 'metodo' }, 405);
-}
+export default {
+  async fetch(request, env) {
+    const url = new URL(request.url);
+    if (url.pathname === '/api/contacto') {
+      if (request.method === 'POST') return handleContacto(request, env);
+      return json({ ok: false, error: 'metodo' }, 405);
+    }
+    // Todo lo demás son archivos estáticos de /public
+    return env.ASSETS.fetch(request);
+  },
+};
