@@ -25,7 +25,7 @@ Para activar Turnstile: crear el widget en Cloudflare > Turnstile y pegar la sit
 
 ## Pendientes antes de publicar
 - [ ] Caso Transportes VYC: completar el bloque comentado `TODO Transportes VYC` en `index.html` con datos reales.
-- [ ] Botón "Ingresar": hoy apunta a `app.transportesitineris.cl`; cambiar a `https://app.estratotech.cl` cuando el Bitácora nuevo esté arriba.
+- [x] Botón "Ingresar": apunta a `https://app.estratotech.cl`.
 - [ ] Textos legales definitivos en `/terminos` y `/privacidad` (revisión del abogado; plazo Ley 21.719: 1 de diciembre de 2026).
 - [ ] Hidroservi: confirmar con ellos el texto del caso (≥ 20 horas-hombre al mes en informes; unos 4 técnicos y ~30 OS al mes).
 - [ ] Publicar solo afirmaciones verificables: no prometer uptime/SLA, respaldos diarios ni plazos de implementación hasta que sean ciertos.
