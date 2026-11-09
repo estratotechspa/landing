@@ -1,51 +1,72 @@
 <!doctype html>
 <html lang="es">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Política de Privacidad — EstratoTech</title>
-    <meta name="robots" content="noindex">
-    <meta name="theme-color" content="#0b1422">
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;600;700&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
-    <style>
-        body { margin: 0; font-family: 'Manrope', sans-serif; color: #ffffff; background: #0b1422; line-height: 1.6; }
-        a { color: #f7b267; }
-        a:focus-visible { outline: 3px solid #f7b267; outline-offset: 3px; }
-        .wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
-        header { border-bottom: 1px solid #1d3250; }
-        header .wrap { display: flex; align-items: center; justify-content: space-between; padding: 22px 24px; gap: 16px; flex-wrap: wrap; }
-        .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: #ffffff; font-family: 'Sora', sans-serif; font-size: 23px; letter-spacing: -0.5px; line-height: 1; }
-        .brand b { font-weight: 700; } .brand span { font-weight: 300; }
-        h1 { font-family: 'Sora', sans-serif; font-size: clamp(30px, 5vw, 44px); letter-spacing: -1px; line-height: 1.1; margin: 56px 0 16px; }
-        .tag { display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: #f7b267; border: 1px solid #5a6b85; border-radius: 999px; padding: 4px 12px; }
-        p, li { color: #c9d5e4; font-size: 17px; }
-        ul { padding-left: 22px; display: flex; flex-direction: column; gap: 8px; }
-        footer { margin-top: 72px; background: #060c17; color: #b6c3d4; font-size: 14px; }
-        footer .wrap { padding: 28px 24px; }
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Política de Privacidad — EstratoTech</title>
+<meta name="description" content="Política de Privacidad de EstratoTech (versión provisoria).">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0b1422">
+<link rel="canonical" href="https://estratotech.cl/privacidad">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_CL">
+<meta property="og:site_name" content="EstratoTech">
+<meta property="og:title" content="Política de Privacidad — EstratoTech">
+<meta property="og:description" content="Política de Privacidad de EstratoTech (versión provisoria).">
+<meta property="og:url" content="https://estratotech.cl/privacidad">
+<meta property="og:image" content="https://estratotech.cl/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Política de Privacidad — EstratoTech">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+<script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
-    <header>
-        <div class="wrap">
-            <a class="brand" href="/">
-                <svg aria-hidden="true" width="38" height="38" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="10" width="44" height="12" rx="4" fill="#f7b267"/><rect x="14" y="26" width="44" height="12" rx="4" fill="#e0701a"/><rect x="6" y="42" width="44" height="12" rx="4" fill="#ffffff"/></svg>
-                <span><b>Estrato</b><span>Tech</span></span>
-            </a>
-            <a href="/">Volver al inicio</a>
-        </div>
-    </header>
-    <main class="wrap">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="EstratoTech, inicio">
+      <svg aria-hidden="true" width="38" height="38" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="10" width="44" height="12" rx="4" fill="#f7b267"/><rect x="14" y="26" width="44" height="12" rx="4" fill="#e0701a"/><rect x="6" y="42" width="44" height="12" rx="4" fill="#ffffff"/></svg>
+      <span><b>Estrato</b><span>Tech</span></span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav">Menú</button>
+    <nav class="nav" id="nav" aria-label="Principal">
+      <a href="/#bitacora">Bitácora</a>
+      <a href="/#planes">Planes</a>
+      <a href="/#caso">Casos</a>
+      <a href="/asesorias">Asesorías</a>
+      <a href="/#nosotros">Nosotros</a>
+      <a class="btn btn--sm btn--outline-white" href="https://app.estratotech.cl">Ingresar</a>
+      <a class="btn btn--sm btn--primary" href="/#contacto">Contáctanos</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap legal">
         <h1>Política de Privacidad</h1>
         <div class="tag">Versión provisoria</div>
         <p>Estamos preparando el texto definitivo de nuestra Política de Privacidad. Mientras tanto, esto es lo que hacemos hoy con los datos de este sitio:</p>
         <ul>
-            <li>El formulario de contacto recoge tu nombre, correo, empresa y el mensaje que escribas, solo para responder tu solicitud.</li>
+            <li>El formulario de contacto recoge tu nombre, correo, empresa, interés, plan y el mensaje que escribas, solo para responder tu solicitud.</li>
             <li>Esos datos llegan por correo a EstratoTech SpA y no se venden ni se comparten con terceros para publicidad.</li>
             <li>El sitio usa servicios de Cloudflare (alojamiento y verificación anti-spam) y Resend (envío del correo del formulario).</li>
         </ul>
         <p>Para pedir acceso, rectificación o eliminación de tus datos, escríbenos a <a href="mailto:contacto@estratotech.cl">contacto@estratotech.cl</a>.</p>
     </main>
-    <footer><div class="wrap">© 2026 EstratoTech SpA — RUT 78.520.345-3 · Santiago, Chile</div></footer>
+<footer class="site-footer">
+  <div class="wrap">
+    <div>© 2026 EstratoTech SpA — RUT 78.520.345-3 · Santiago, Chile</div>
+    <nav aria-label="Pie de página">
+      <a href="https://wa.me/56978099416?text=Hola%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Bit%C3%A1cora." target="_blank" rel="noopener">WhatsApp</a>
+      <a href="https://www.linkedin.com/in/carlos-quiroz-3740b2104/" target="_blank" rel="noopener">LinkedIn</a>
+      <!-- TODO Instagram (más adelante): agregar el enlace real -->
+      <a href="/terminos">Términos</a>
+      <a href="/privacidad">Privacidad</a>
+    </nav>
+  </div>
+</footer>
+<a class="wa-float" href="https://wa.me/56978099416?text=Hola%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Bit%C3%A1cora." target="_blank" rel="noopener" aria-label="Escribir por WhatsApp"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M4 3h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H9.5L5 21.5V17H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/></svg><span>WhatsApp</span></a>
+<script src="/site.js" defer></script>
 </body>
 </html>
