@@ -27,6 +27,23 @@ function origenPermitido(request) {
   }
 }
 
+const PLANES = ['Esencial', 'Operación', 'Pro'];
+
+// GET /api/uf: valor de la UF del día (mindicador.cl), cacheado 1 hora. Solo informativo para mostrar equivalentes en pesos.
+async function handleUf() {
+  try {
+    const r = await fetch('https://mindicador.cl/api/uf', { cf: { cacheTtl: 3600, cacheEverything: true } });
+    const d = await r.json();
+    const uf = Number(d?.serie?.[0]?.valor);
+    if (!r.ok || !Number.isFinite(uf) || uf < 1000) throw new Error('uf');
+    return new Response(JSON.stringify({ uf: Math.round(uf), fecha: d.serie[0].fecha }), {
+      headers: { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'public, max-age=3600' },
+    });
+  } catch {
+    return json({ ok: false, error: 'uf' }, 502);
+  }
+}
+
 async function handleContacto(request, env) {
   if (!origenPermitido(request)) return json({ ok: false, error: 'origen' }, 403);
 
@@ -46,6 +63,7 @@ async function handleContacto(request, env) {
     email: limpiar(body.email, 160),
     empresa: limpiar(body.empresa, 120),
     interes: limpiar(body.interes, 120) || 'No indicado',
+    plan: PLANES.includes(limpiar(body.plan, 40)) ? limpiar(body.plan, 40) : 'No indicado',
   };
   if (!d.reto || !d.nombre || !d.empresa || !emailValido(d.email)) {
     return json({ ok: false, error: 'datos' }, 400);
@@ -71,6 +89,7 @@ async function handleContacto(request, env) {
     `Correo: ${d.email}`,
     `Empresa: ${d.empresa}`,
     `Interés: ${d.interes}`,
+    `Plan: ${d.plan}`,
     '',
     'Mensaje:',
     d.reto,
@@ -83,7 +102,7 @@ async function handleContacto(request, env) {
       from: env.MAIL_FROM || 'EstratoTech <no-responder@estratotech.cl>',
       to: [env.MAIL_TO || 'contacto@estratotech.cl'],
       reply_to: d.email,
-      subject: `Contacto web: ${d.interes} — ${d.empresa}`.slice(0, 200),
+      subject: `Contacto web: ${d.interes}${d.plan !== 'No indicado' ? ` (${d.plan})` : ''} — ${d.empresa}`.slice(0, 200),
       text: texto,
     }),
   });
@@ -98,6 +117,7 @@ async function handleContacto(request, env) {
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
+    if (url.pathname === '/api/uf' && request.method === 'GET') return handleUf();
     if (url.pathname === '/api/contacto') {
       if (request.method === 'POST') return handleContacto(request, env);
       return json({ ok: false, error: 'metodo' }, 405);
