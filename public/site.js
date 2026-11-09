@@ -2,6 +2,16 @@
 // Turnstile (anti-spam de Cloudflare): pegar aquí la "site key" pública cuando se cree el widget. Vacío = sin Turnstile.
 const TURNSTILE_SITE_KEY = '';
 const MAIL_RESPALDO = 'contacto@estratotech.cl';
+// Cloudflare Web Analytics (sin cookies): pegar aquí el token del sitio cuando se cree en Cloudflare > Analytics & Logs > Web Analytics. Vacío = sin analítica.
+const CF_ANALYTICS_TOKEN = '';
+
+if (CF_ANALYTICS_TOKEN) {
+  const a = document.createElement('script');
+  a.src = 'https://static.cloudflareinsights.com/beacon.min.js';
+  a.defer = true;
+  a.setAttribute('data-cf-beacon', JSON.stringify({ token: CF_ANALYTICS_TOKEN }));
+  document.head.appendChild(a);
+}
 
 // ---------- Menú móvil ----------
 (function () {
@@ -83,7 +93,7 @@ const MAIL_RESPALDO = 'contacto@estratotech.cl';
     const datos = {
       reto: v('reto'), nombre: v('nombre'), email: v('email'),
       empresa: v('empresa'), interes: v('interes'), plan: v('plan'),
-      website: v('website'), token: turnstileToken
+      website: v('website'), token: turnstileToken, pagina: location.pathname
     };
     try {
       const r = await fetch('/api/contacto', {

@@ -22,13 +22,25 @@ Para agregar una página de industria: añadir un objeto en `site/data/rubros.js
 ## Publicar en Cloudflare
 `wrangler.jsonc` sirve `./public` y ejecuta el Worker primero solo para `/api/*`. Dominios: `estratotech.cl` y `www.estratotech.cl` (con redirección a la raíz).
 
-## Variables del formulario (Worker > Settings > Variables and Secrets)
+## Formulario de contacto: variables y bindings (Worker > Settings)
 - `RESEND_API_KEY` (secreto): API key de Resend con permiso solo de envío. Requiere el dominio verificado.
-- `TURNSTILE_SECRET` (secreto, opcional): clave secreta del widget de Turnstile.
+- `TURNSTILE_SECRET` (secreto): clave secreta de Turnstile. **Con ella activa** se valida a la persona y además se envía un correo de confirmación a quien escribió (sin Turnstile no se envía, para que el formulario no sirva para mandar correos a terceros).
 - `MAIL_TO` y `MAIL_FROM` (opcionales): por defecto `contacto@estratotech.cl` y `EstratoTech <no-responder@estratotech.cl>`.
+- `DB` (binding D1, opcional): guarda cada contacto en la tabla `leads` antes de enviar el correo, así no se pierde ninguno si Resend falla.
+
+El Worker solo acepta envíos desde `estratotech.cl`, `www.estratotech.cl` y las URL del propio Worker (`estratotech-landing.*.workers.dev`).
 
 Antes de probar el formulario: crear la dirección `contacto@` en Email Routing (hacia el Gmail de EstratoTech).
-Para activar Turnstile: crear el widget en Cloudflare > Turnstile y pegar la site key (pública) en `TURNSTILE_SITE_KEY`, al inicio de `site/static/site.js`.
+
+## Activar Turnstile, base de contactos y analítica (pasos en Cloudflare)
+1. **Turnstile:** Cloudflare > Turnstile > Add widget (dominios `estratotech.cl` y `www.estratotech.cl`). Pegar la *site key* en `TURNSTILE_SITE_KEY` (inicio de `site/static/site.js`) y guardar la *secret key* como secreto `TURNSTILE_SECRET`. Compilar y desplegar.
+2. **Base de contactos (D1):**
+   ```
+   npx wrangler d1 create estratotech-leads
+   npx wrangler d1 migrations apply estratotech-leads --remote
+   ```
+   Descomentar el bloque `d1_databases` de `wrangler.jsonc` con el `database_id` entregado y desplegar. Ver los contactos: `npx wrangler d1 execute estratotech-leads --remote --command "SELECT * FROM leads ORDER BY id DESC LIMIT 20"`.
+3. **Analítica sin cookies:** Cloudflare > Analytics & Logs > Web Analytics > Add site. Pegar el token en `CF_ANALYTICS_TOKEN` (inicio de `site/static/site.js`). La CSP de `_headers` ya permite el script.
 
 ## Pendientes
 - [x] Botón "Ingresar": apunta a `https://app.estratotech.cl`.
@@ -38,5 +50,6 @@ Para activar Turnstile: crear el widget en Cloudflare > Turnstile y pegar la sit
 - [ ] Logos y citas de clientes (todos autorizaron): falta recibir los archivos de logo y los textos de las citas (hay `TODO` en `site/partials/case-*.html`).
 - [ ] Foto de Carlos Quiroz para la sección Quiénes somos (`TODO` en `site/pages/index.html`).
 - [ ] Textos legales definitivos en `/terminos` y `/privacidad` (revisión del abogado; plazo Ley 21.719: 1 de diciembre de 2026).
+- [ ] Activar Turnstile, D1 y Web Analytics (pasos arriba). La política de privacidad ya describe el registro de contactos, la confirmación por correo y las estadísticas: solo es cierta una vez hechos los pasos 1 a 3.
 - [ ] Probar `/api/uf` (mindicador.cl) en el preview desplegado.
 - [ ] Publicar solo afirmaciones verificables: no prometer uptime/SLA, respaldos diarios ni plazos de implementación hasta que sean ciertos.

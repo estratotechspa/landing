@@ -55,6 +55,7 @@ function emit(meta, body, extra = {}) {
   html = expand(html);
   // Páginas sin formulario: el botón "Contáctanos" apunta al de la portada
   if (!html.includes('id="contacto"')) html = html.replaceAll('href="#contacto"', 'href="/#contacto"');
+  for (const m of html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) JSON.parse(m[1]); // falla el build si el JSON-LD es inválido
   const file = path === '/' ? 'index.html' : `${path.slice(1)}.html`;
   writeFileSync(join(OUT, file), html);
   if (!meta.noindex) urls.push(path);
