@@ -1,0 +1,63 @@
+[
+  {
+    "slug": "transporte",
+    "title": "Software para transporte y logística: viajes, choferes y cobros | Bitácora",
+    "description": "Bitácora ordena los viajes, choferes, tarifas por tramo o kilómetro, cobros y viáticos de tu empresa de transporte, con checklist de flota y programa de mantención. 7 días de prueba gratis.",
+    "short": "Transporte y logística",
+    "eyebrow": "Bitácora para transporte y logística",
+    "h1": "Viajes, choferes y cobros de tu flota, <span class=\"accent\">ordenados</span>",
+    "lead": "Registra cada viaje, asigna choferes, aplica tus tarifas por tramo o kilómetro y cobra sin planillas. Bitácora nació en una operación real de transporte.",
+    "h2": "Lo que ordena en tu operación de transporte",
+    "image": "/bitacora-viajes.jpg",
+    "imageAlt": "Pantalla de Viajes de Bitácora: resumen del período, kilómetros, entregas con problemas y filtros por estado, cliente y chofer",
+    "caso": "case-itineris",
+    "features": [
+      ["Viajes y guías de despacho", "Guías de despacho, kilometraje y facturación en un solo lugar."],
+      ["Choferes y agenda", "Asigna choferes y mira la agenda de toda la operación."],
+      ["Tarifas por tramo o kilómetro", "Tarifas claras, definidas por tramo o por kilómetro."],
+      ["Cobros y viáticos", "Varios viajes en un solo cobro; rendiciones al día."],
+      ["Control de entregas", "Ve cuáles se rechazaron, no se entregaron o salieron con observaciones."],
+      ["Flota y mantención", "Checklist diario y programa de mantención."]
+    ]
+  },
+  {
+    "slug": "mantencion",
+    "title": "Software de órdenes de servicio para mantención y servicios técnicos | Bitácora",
+    "description": "Órdenes de servicio con fotos por categoría, firma del cliente y PDF con tu marca, levantamientos en terreno y materiales. Bitácora para empresas de mantención. 7 días de prueba gratis.",
+    "short": "Mantención y servicios técnicos",
+    "eyebrow": "Bitácora para mantención y servicios técnicos",
+    "h1": "Órdenes de servicio con fotos, firma y <span class=\"accent\">PDF con tu marca</span>",
+    "lead": "Tus técnicos registran el trabajo desde el celular; tú tienes el informe listo y el cliente, su comprobante firmado.",
+    "h2": "Lo que ordena en tu servicio técnico",
+    "image": "",
+    "imageAlt": "",
+    "caso": "case-hidroservi",
+    "features": [
+      ["Órdenes de servicio", "Fotos por categoría, firma del cliente y PDF con tu marca."],
+      ["Levantamientos y materiales", "Registra el levantamiento en terreno y los materiales usados."],
+      ["Agenda de técnicos", "Asigna técnicos a cada trabajo y organiza la semana."],
+      ["Informes con IA", "Genera informes a partir de tus órdenes de servicio."],
+      ["Cobros y gastos", "Cobros y rendiciones al día."]
+    ]
+  },
+  {
+    "slug": "agenda",
+    "title": "Software de agenda y reservas en línea para servicios | Bitácora",
+    "description": "Reservas en línea sin login, paquetes de sesiones y reglas de cancelación para negocios que viven de su agenda. Bitácora con agenda, clientes y cobros. 7 días de prueba gratis.",
+    "short": "Servicios con agenda",
+    "eyebrow": "Bitácora para servicios con agenda",
+    "h1": "Reservas en línea, <span class=\"accent\">sin que tus clientes creen una cuenta</span>",
+    "lead": "Para negocios que viven de su agenda: tus clientes reservan solos y tú administras sesiones, paquetes y cancelaciones en un solo lugar.",
+    "h2": "Lo que ordena en tu agenda",
+    "image": "",
+    "imageAlt": "",
+    "caso": "",
+    "features": [
+      ["Reservas en línea sin login", "Tus clientes reservan sin crear una cuenta."],
+      ["Paquetes de sesiones", "Ofrece paquetes de sesiones a tus clientes."],
+      ["Reglas de cancelación", "Define tus propias reglas de cancelación."],
+      ["Agenda y clientes", "Tu agenda y tu base de clientes en el mismo lugar."],
+      ["Cobros y gastos", "Cobros y rendiciones al día."]
+    ]
+  }
+]

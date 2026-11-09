@@ -1,0 +1,59 @@
+<!--meta
+title: {{title}}
+description: {{description}}
+path: /{{slug}}
+generate: rubros
+-->
+<!--include:head-->
+<!--include:header-->
+<main>
+<section class="s hero hero--page">
+  <div class="wrap">
+    <div class="stack hero__top">
+      <div class="eyebrow">{{eyebrow}}</div>
+      <h1>{{h1}}</h1>
+      <p class="lead">{{lead}}</p>
+      <div class="row">
+        <a class="btn btn--primary" href="#contacto" data-interes="Prueba gratis de 7 días">Probar 7 días gratis</a>
+        <a class="btn btn--outline" href="#contacto" data-interes="Demo de Bitácora">Pedir una demo</a>
+      </div>
+      <!--include:security-->
+    </div>
+    {{image}}
+  </div>
+</section>
+
+<section class="s s--paper">
+  <div class="wrap stack" style="--gap: 32px">
+    <div class="stack measure" style="--gap: 14px">
+      <div class="eyebrow">Qué resuelve</div>
+      <h2>{{h2}}</h2>
+    </div>
+    <div class="grid" style="--min: 250px; --gap: 16px">
+{{features}}
+    </div>
+  </div>
+</section>
+
+{{caso}}
+
+<section class="s s--navy s--tight">
+  <div class="wrap row" style="justify-content: space-between; --gap: 24px">
+    <div class="stack measure" style="--gap: 8px">
+      <h2 style="font-size: clamp(26px, 3.5vw, 38px)">Planes desde 1,5 UF + IVA al mes</h2>
+      <p class="lead">Empieza con 7 días de prueba gratis, con todo incluido. Sin letra chica: los precios están en la página.</p>
+    </div>
+    <a class="btn btn--primary" href="/#planes">Ver planes</a>
+  </div>
+</section>
+
+<section class="s s--dark s--tight">
+  <div class="wrap stack" style="--gap: 14px">
+    <div class="eyebrow">Otras industrias</div>
+    <div class="chips">{{others}}</div>
+  </div>
+</section>
+
+<!--include:contact-->
+</main>
+<!--include:foot-->

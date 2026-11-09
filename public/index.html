@@ -1,466 +1,307 @@
 <!doctype html>
 <html lang="es">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>EstratoTech — Software y Asesoría en Tecnología</title>
-    <meta name="description" content="Bitácora: software para gestionar el trabajo en terreno (órdenes de servicio, agenda, viajes, cobros y flota). Asesorías en IA, cloud e infraestructura como código.">
-    <meta name="theme-color" content="#0b1422">
-    <link rel="canonical" href="https://estratotech.cl/">
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-    <meta property="og:type" content="website">
-    <meta property="og:locale" content="es_CL">
-    <meta property="og:site_name" content="EstratoTech">
-    <meta property="og:title" content="EstratoTech — Software y Asesoría en Tecnología">
-    <meta property="og:description" content="Bitácora para el trabajo en terreno y asesorías en IA, cloud e infraestructura como código.">
-    <meta property="og:url" content="https://estratotech.cl/">
-    <meta property="og:image" content="https://estratotech.cl/og-image.png">
-    <meta name="twitter:card" content="summary_large_image">
-    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;600;700&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-        html { scroll-behavior: smooth; }
-        a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible { outline: 3px solid #f7b267; outline-offset: 3px; }
-        .caso-card { padding: 40px; }
-        @media (max-width: 600px) {
-            div[style*="padding: 96px 32px"] { padding: 64px 20px !important; }
-            div[style*="padding: 22px 32px"] { padding: 18px 20px !important; }
-            div[style*="padding: 48px 32px 96px"] { padding: 32px 20px 64px !important; }
-            div[style*="padding: 56px 32px"] { padding: 40px 20px !important; }
-            div[style*="padding: 36px 32px"] { padding: 28px 20px !important; }
-            .caso-card { padding: 28px; }
-        }
-    </style>
-<style>
-        .wa-float { position: fixed; right: 20px; bottom: 20px; z-index: 50; display: inline-flex; align-items: center; gap: 10px; background: #25d366; color: #0b1422; font-weight: 700; font-size: 15px; text-decoration: none; padding: 14px 20px; border-radius: 999px; box-shadow: 0 8px 24px rgba(0,0,0,0.35); }
-        .wa-float:hover { background: #3be07a; }
-        @media (max-width: 600px) { .wa-float { padding: 14px; right: 16px; bottom: 16px; } .wa-float span { display: none; } }
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EstratoTech — Software y Asesoría en Tecnología</title>
+<meta name="description" content="Bitácora: software para gestionar el trabajo en terreno (órdenes de servicio, agenda, viajes, cobros y flota). Asesorías en IA, cloud e infraestructura como código.">
+
+<meta name="theme-color" content="#0b1422">
+<link rel="canonical" href="https://estratotech.cl/">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_CL">
+<meta property="og:site_name" content="EstratoTech">
+<meta property="og:title" content="EstratoTech — Software y Asesoría en Tecnología">
+<meta property="og:description" content="Bitácora: software para gestionar el trabajo en terreno (órdenes de servicio, agenda, viajes, cobros y flota). Asesorías en IA, cloud e infraestructura como código.">
+<meta property="og:url" content="https://estratotech.cl/">
+<meta property="og:image" content="https://estratotech.cl/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="EstratoTech — Software y Asesoría en Tecnología">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+<script>document.documentElement.classList.add('js')</script>
 </head>
-<body style="margin: 0; font-family: 'Manrope', sans-serif; color: #ffffff; background: #0b1422; line-height: 1.5;">
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="EstratoTech, inicio">
+      <svg aria-hidden="true" width="38" height="38" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="10" width="44" height="12" rx="4" fill="#f7b267"/><rect x="14" y="26" width="44" height="12" rx="4" fill="#e0701a"/><rect x="6" y="42" width="44" height="12" rx="4" fill="#ffffff"/></svg>
+      <span><b>Estrato</b><span>Tech</span></span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav">Menú</button>
+    <nav class="nav" id="nav" aria-label="Principal">
+      <a href="/#bitacora">Bitácora</a>
+      <a href="/#planes">Planes</a>
+      <a href="/#caso">Casos</a>
+      <a href="/asesorias">Asesorías</a>
+      <a href="/#nosotros">Nosotros</a>
+      <a class="btn btn--sm btn--outline-white" href="https://app.estratotech.cl">Ingresar</a>
+      <a class="btn btn--sm btn--primary" href="#contacto">Contáctanos</a>
+    </nav>
+  </div>
+</header>
+<main>
 
-    <!-- HEADER / NAVEGACIÓN -->
-    <div style="max-width: 1240px; margin: 0 auto; padding: 22px 32px; box-sizing: border-box; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px;">
-        <div style="display: flex; align-items: center; gap: 10px;">
-            <svg aria-hidden="true" width="38" height="38" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-                <rect x="6" y="10" width="44" height="12" rx="4" fill="#f7b267"></rect>
-                <rect x="14" y="26" width="44" height="12" rx="4" fill="#e0701a"></rect>
-                <rect x="6" y="42" width="44" height="12" rx="4" fill="#ffffff"></rect>
-            </svg>
-            <div style="font-family: 'Sora', sans-serif; font-size: 23px; letter-spacing: -0.5px; line-height: 1;">
-                <span style="font-weight: 700">Estrato</span><span style="font-weight: 300">Tech</span>
-            </div>
-        </div>
-        <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px 24px;">
-            <a href="#bitacora" style="color: #e3ebf5; font-weight: 600; font-size: 15px; text-decoration: none;">Bitácora</a>
-            <a href="#planes" style="color: #e3ebf5; font-weight: 600; font-size: 15px; text-decoration: none;">Planes</a>
-            <a href="#caso" style="color: #e3ebf5; font-weight: 600; font-size: 15px; text-decoration: none;">Casos</a>
-            <a href="#asesorias" style="color: #e3ebf5; font-weight: 600; font-size: 15px; text-decoration: none;">Asesorías</a>
-            <a href="#nosotros" style="color: #e3ebf5; font-weight: 600; font-size: 15px; text-decoration: none;">Nosotros</a>
-            <a href="https://app.estratotech.cl" style="color: #ffffff; font-weight: 600; font-size: 15px; text-decoration: none; padding: 10px 20px; border-radius: 999px; border: 2px solid #ffffff; box-sizing: border-box;">Ingresar</a>
-            <a href="#contacto" style="background: #f7b267; color: #0b1422; font-weight: 700; font-size: 15px; text-decoration: none; padding: 10px 22px; border-radius: 999px;">Contáctanos</a>
-        </div>
+<section class="s hero">
+  <div class="wrap">
+    <div class="stack hero__top">
+      <div class="eyebrow">Bitácora · Software para el trabajo en terreno</div>
+      <h1>Todo tu trabajo en terreno, <span class="accent">en un solo lugar</span>.</h1>
+      <p class="lead">Órdenes de servicio, agenda, viajes, cobros y flota. Tus técnicos y choferes registran desde el celular; tú ves el estado de cada trabajo y lo cobras sin planillas.</p>
+      <div class="row">
+        <a class="btn btn--primary" href="#contacto" data-interes="Prueba gratis de 7 días">Probar 7 días gratis</a>
+        <a class="btn btn--outline" href="#planes">Ver planes</a>
+      </div>
+      <p class="small" style="color: var(--muted)">¿Buscas asesoría en cloud o IA para tu empresa? <a class="link" href="/asesorias">Conoce nuestras asesorías →</a></p>
     </div>
+    <figure class="shot">
+      <img src="/bitacora-viajes.jpg" width="1481" height="800" alt="Pantalla de Viajes de Bitácora: resumen del período, kilómetros, entregas con problemas y filtros por estado, cliente y chofer">
+    </figure>
+  </div>
+</section>
 
-    <!-- HERO SECTION -->
-    <div style="max-width: 1240px; margin: 0 auto; padding: 48px 32px 72px; box-sizing: border-box; display: flex; flex-direction: column; gap: 56px;">
-        <div style="display: flex; flex-direction: column; gap: 28px; max-width: 820px;">
-            <div style="font-size: 14px; letter-spacing: 1.8px; text-transform: uppercase; font-weight: 600; color: #f7b267;">Bitácora · Software para el trabajo en terreno</div>
-            <h1 style="margin: 0; font-family: 'Sora', sans-serif; font-weight: 700; font-size: clamp(38px, 5.5vw, 68px); line-height: 1.08; letter-spacing: -2px;">
-                Todo tu trabajo en terreno, <span style="color: #f7b267">en un solo lugar</span>.
-            </h1>
-            <p style="margin: 0; font-size: 19px; line-height: 1.6; color: #c9d5e4; max-width: 620px;">
-                Órdenes de servicio, agenda, viajes, cobros y flota. Tus técnicos y choferes registran desde el celular; tú ves el estado de cada trabajo y lo cobras sin planillas.
-            </p>
-            <div style="display: flex; flex-wrap: wrap; gap: 14px;">
-                <a href="#contacto" data-interes="Prueba gratis de 7 días" style="background: #f7b267; color: #0b1422; font-weight: 700; text-decoration: none; padding: 16px 32px; border-radius: 999px; font-size: 16px;">Probar 7 días gratis</a>
-                <a href="#planes" style="color: #ffffff; font-weight: 600; text-decoration: none; padding: 16px 28px; border-radius: 999px; border: 2px solid #5a6b85; box-sizing: border-box; font-size: 16px;">Ver planes</a>
-            </div>
-            <div style="font-size: 15px; color: #c9d5e4;">¿Buscas asesoría en cloud o IA para tu empresa? <a href="#asesorias" style="color: #f7b267; font-weight: 600;">Conoce nuestras asesorías →</a></div>
-        </div>
-        <figure style="margin: 0; border-radius: 20px; overflow: hidden; border: 1px solid #27405f; box-shadow: 0 24px 60px rgba(0,0,0,0.45);">
-            <img src="/bitacora-viajes.jpg" width="1481" height="800" alt="Pantalla de Viajes de Bitácora: resumen del período, kilómetros, entregas con problemas y filtros por estado, cliente y chofer" style="display: block; width: 100%; height: auto;">
-        </figure>
+<section class="s--paper s--tight" aria-label="Cifras">
+  <div class="wrap grid" style="--min: 220px; --gap: 28px">
+    <div class="stat"><div class="stat__n">4 empresas</div><p>usan Bitácora en su operación diaria</p></div>
+    <div class="stat"><div class="stat__n">+15 años</div><p>de experiencia en TI y banca como Cloud Engineer y SRE</p></div>
+    <div class="stat"><div class="stat__n">7 días</div><p>de prueba gratis de Bitácora con todo incluido</p></div>
+    <div class="stat"><div class="stat__n">Desde 1,5 UF</div><p>al mes + IVA, en 3 planes simples</p></div>
+  </div>
+</section>
+
+<section class="s s--dark" id="oferta">
+  <div class="wrap stack" style="--gap: 40px">
+    <div class="stack measure" style="--gap: 14px">
+      <div class="eyebrow">Soluciones por industria</div>
+      <h2>Cada operación, con la herramienta que le corresponde</h2>
     </div>
-
-    <!-- ESTADÍSTICAS / BARRA DE CONFIANZA -->
-    <div style="background: #f7f9fc; color: #1b2a41;">
-        <div style="max-width: 1240px; margin: 0 auto; padding: 56px 32px; box-sizing: border-box; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 28px;">
-            <div style="display: flex; flex-direction: column; gap: 6px;">
-                <div style="font-family: 'Sora', sans-serif; font-weight: 700; font-size: 36px; letter-spacing: -1px;">4 empresas</div>
-                <div style="font-size: 15px; color: #46566a; line-height: 1.5;">usan Bitácora en su operación diaria</div>
-            </div>
-            <div style="display: flex; flex-direction: column; gap: 6px;">
-                <div style="font-family: 'Sora', sans-serif; font-weight: 700; font-size: 36px; letter-spacing: -1px;">+15 años</div>
-                <div style="font-size: 15px; color: #46566a; line-height: 1.5;">de experiencia en TI y banca como Cloud Engineer y SRE</div>
-            </div>
-            <div style="display: flex; flex-direction: column; gap: 6px;">
-                <div style="font-family: 'Sora', sans-serif; font-weight: 700; font-size: 36px; letter-spacing: -1px;">7 días</div>
-                <div style="font-size: 15px; color: #46566a; line-height: 1.5;">de prueba gratis de Bitácora con todo incluido</div>
-            </div>
-            <div style="display: flex; flex-direction: column; gap: 6px;">
-                <div style="font-family: 'Sora', sans-serif; font-weight: 700; font-size: 36px; letter-spacing: -1px;">Desde 1,5 UF</div>
-                <div style="font-size: 15px; color: #46566a; line-height: 1.5;">al mes + IVA, en 3 planes simples</div>
-            </div>
-        </div>
+    <div class="grid">
+      <article class="card card--tall">
+        <h3>Transporte y logística</h3>
+        <p>Viajes, choferes, tarifas por tramo o kilómetro, cobros y viáticos, con checklist de flota y mantención.</p>
+        <a class="link" href="/transporte">Ver Bitácora para transporte →</a>
+      </article>
+      <article class="card card--tall">
+        <h3>Mantención y servicios técnicos</h3>
+        <p>Órdenes de servicio con fotos, firma del cliente y PDF con tu marca; levantamientos en terreno y materiales.</p>
+        <a class="link" href="/mantencion">Ver Bitácora para mantención →</a>
+      </article>
+      <article class="card card--tall">
+        <h3>Servicios con agenda</h3>
+        <p>Reservas en línea sin login, paquetes de sesiones y reglas de cancelación para negocios que viven de su agenda.</p>
+        <a class="link" href="/agenda">Ver Bitácora para agenda →</a>
+      </article>
+      <article class="card card--tall">
+        <h3>Empresas con plataformas críticas</h3>
+        <p>Cloud, observabilidad e infraestructura como código para sistemas donde la disponibilidad no es negociable.</p>
+        <a class="link" href="/asesorias">Ver asesorías →</a>
+      </article>
     </div>
+  </div>
+</section>
 
-    <!-- SOLUCIONES POR INDUSTRIA -->
-    <div id="oferta" style="background: #0b1422;">
-        <div style="max-width: 1240px; margin: 0 auto; padding: 96px 32px; box-sizing: border-box; display: flex; flex-direction: column; gap: 40px;">
-            <div style="display: flex; flex-direction: column; gap: 14px; max-width: 760px;">
-                <div style="font-size: 14px; letter-spacing: 1.8px; text-transform: uppercase; font-weight: 600; color: #f7b267;">Soluciones por industria</div>
-                <h2 style="margin: 0; font-family: 'Sora', sans-serif; font-weight: 700; font-size: clamp(30px, 4vw, 48px); letter-spacing: -1.2px; line-height: 1.1;">Cada operación, con la herramienta que le corresponde</h2>
-            </div>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px;">
-                <div style="background: #14213a; border-radius: 20px; padding: 30px; display: flex; flex-direction: column; gap: 12px; min-height: 220px; border: 1px solid #1d3250;">
-                    <div style="font-family: 'Sora', sans-serif; font-weight: 600; font-size: 22px; line-height: 1.2;">Transporte y logística</div>
-                    <div style="font-size: 15px; color: #c9d5e4; line-height: 1.6;">Viajes, choferes, tarifas por tramo o kilómetro, cobros y viáticos, con checklist de flota y mantención.</div>
-                </div>
-                <div style="background: #14213a; border-radius: 20px; padding: 30px; display: flex; flex-direction: column; gap: 12px; min-height: 220px; border: 1px solid #1d3250;">
-                    <div style="font-family: 'Sora', sans-serif; font-weight: 600; font-size: 22px; line-height: 1.2;">Mantención y servicios técnicos</div>
-                    <div style="font-size: 15px; color: #c9d5e4; line-height: 1.6;">Órdenes de servicio con fotos, firma del cliente y PDF con tu marca; levantamientos en terreno y materiales.</div>
-                </div>
-                <div style="background: #14213a; border-radius: 20px; padding: 30px; display: flex; flex-direction: column; gap: 12px; min-height: 220px; border: 1px solid #1d3250;">
-                    <div style="font-family: 'Sora', sans-serif; font-weight: 600; font-size: 22px; line-height: 1.2;">Servicios con agenda</div>
-                    <div style="font-size: 15px; color: #c9d5e4; line-height: 1.6;">Reservas en línea sin login, paquetes de sesiones y reglas de cancelación para negocios que viven de su agenda.</div>
-                </div>
-                <div style="background: #14213a; border-radius: 20px; padding: 30px; display: flex; flex-direction: column; gap: 12px; min-height: 220px; border: 1px solid #1d3250;">
-                    <div style="font-family: 'Sora', sans-serif; font-weight: 600; font-size: 22px; line-height: 1.2;">Empresas con plataformas críticas</div>
-                    <div style="font-size: 15px; color: #c9d5e4; line-height: 1.6;">Cloud, observabilidad e infraestructura como código para sistemas donde la disponibilidad no es negociable.</div>
-                </div>
-            </div>
-        </div>
+<section class="s s--paper" id="bitacora">
+  <div class="wrap split">
+    <div class="stack">
+      <div class="eyebrow">Bitácora</div>
+      <h2>Cada trabajo con un dueño, un estado y un cobro claro</h2>
+      <p class="lead">Órdenes de servicio, agenda, viajes, cobros, gastos, flota e informes con IA. Cada empresa usa su propio logo y tema visual, y sus equipos trabajan desde la web o la app móvil.</p>
+      <div class="checks"><span>✔ Datos separados por empresa</span><span>✔ Verificación en dos pasos</span><span>✔ Permisos por rol</span><span>✔ Logo y tema propios por empresa</span></div>
+      <div><a class="btn btn--dark" href="#contacto" data-interes="Demo de Bitácora">Pide una demo</a></div>
     </div>
-
-    <!-- SECCIÓN BITÁCORA -->
-    <div id="bitacora" style="background: #f7f9fc; color: #1b2a41;">
-        <div style="max-width: 1240px; margin: 0 auto; padding: 96px 32px; box-sizing: border-box; display: flex; flex-wrap: wrap; align-items: center; gap: 48px;">
-            <div style="flex: 1 1 420px; display: flex; flex-direction: column; gap: 20px;">
-                <div style="font-size: 14px; letter-spacing: 1.8px; text-transform: uppercase; font-weight: 600; color: #2563a6;">Bitácora</div>
-                <h2 style="margin: 0; font-family: 'Sora', sans-serif; font-weight: 700; font-size: clamp(30px, 4vw, 48px); letter-spacing: -1.2px; line-height: 1.1;">Cada trabajo con un dueño, un estado y un cobro claro</h2>
-                <p style="margin: 0; font-size: 18px; line-height: 1.6; color: #3a4a5e;">Órdenes de servicio, agenda, viajes, cobros, gastos, flota e informes con IA. Cada empresa usa su propio logo y tema visual, y sus equipos trabajan desde la web o la app móvil.</p>
-                <div style="display: flex; flex-wrap: wrap; gap: 10px 22px; font-size: 15px; font-weight: 600; color: #1b2a41;">
-                    <span>✔ Datos separados por empresa</span><span>✔ Verificación en dos pasos</span><span>✔ Permisos por rol</span>
-                </div>
-                <div><a href="#contacto" style="background: #1b2a41; color: #ffffff; font-weight: 700; text-decoration: none; padding: 14px 28px; border-radius: 999px; display: inline-block;">Pide una demo</a></div>
-            </div>
-            <div style="flex: 1 1 420px; display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 16px;">
-                <div style="background: #ffffff; border: 1px solid #dfe6ee; border-radius: 16px; padding: 22px; display: flex; flex-direction: column; gap: 6px;">
-                    <div style="font-family: 'Sora', sans-serif; font-weight: 600; font-size: 17px;">Órdenes de servicio</div>
-                    <div style="font-size: 14px; color: #46566a; line-height: 1.5;">Fotos por categoría, firma y PDF con tu marca.</div>
-                </div>
-                <div style="background: #ffffff; border: 1px solid #dfe6ee; border-radius: 16px; padding: 22px; display: flex; flex-direction: column; gap: 6px;">
-                    <div style="font-family: 'Sora', sans-serif; font-weight: 600; font-size: 17px;">Agenda y viajes</div>
-                    <div style="font-size: 14px; color: #46566a; line-height: 1.5;">Asigna choferes y técnicos; tarifas claras.</div>
-                </div>
-                <div style="background: #ffffff; border: 1px solid #dfe6ee; border-radius: 16px; padding: 22px; display: flex; flex-direction: column; gap: 6px;">
-                    <div style="font-family: 'Sora', sans-serif; font-weight: 600; font-size: 17px;">Cobros y gastos</div>
-                    <div style="font-size: 14px; color: #46566a; line-height: 1.5;">Varios viajes en un solo cobro; rendiciones al día.</div>
-                </div>
-                <div style="background: #ffffff; border: 1px solid #dfe6ee; border-radius: 16px; padding: 22px; display: flex; flex-direction: column; gap: 6px;">
-                    <div style="font-family: 'Sora', sans-serif; font-weight: 600; font-size: 17px;">Flota y mantención</div>
-                    <div style="font-size: 14px; color: #46566a; line-height: 1.5;">Checklist diario y programa de mantención.</div>
-                </div>
-            </div>
-        </div>
+    <div class="grid" style="--min: 190px; --gap: 16px">
+      <div class="tile"><h3>Órdenes de servicio</h3><p>Fotos por categoría, firma y PDF con tu marca.</p></div>
+      <div class="tile"><h3>Agenda y viajes</h3><p>Asigna choferes y técnicos; tarifas claras.</p></div>
+      <div class="tile"><h3>Cobros y gastos</h3><p>Varios viajes en un solo cobro; rendiciones al día.</p></div>
+      <div class="tile"><h3>Flota y mantención</h3><p>Checklist diario y programa de mantención.</p></div>
     </div>
+  </div>
+</section>
 
-    <!-- PLANES -->
-    <div id="planes" style="background: #ffffff; color: #1b2a41;">
-        <div style="max-width: 1240px; margin: 0 auto; padding: 96px 32px; box-sizing: border-box; display: flex; flex-direction: column; gap: 32px;">
-            <div style="display: flex; flex-direction: column; gap: 12px; max-width: 700px;">
-                <h2 style="margin: 0; font-family: 'Sora', sans-serif; font-weight: 700; font-size: clamp(30px, 4vw, 48px); letter-spacing: -1.2px;">Planes simples, en UF</h2>
-                <p style="margin: 0; font-size: 18px; line-height: 1.6; color: #3a4a5e;">Precios mensuales en UF + IVA. Empieza con una prueba gratis de 7 días con todo incluido.</p>
-                <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 6px;"><span style="font-size: 14px; font-weight: 700; margin-right: 4px;">Módulos de Bitácora:</span><span style="font-size: 13px; font-weight: 600; color: #1b2a41; background: #f7f9fc; border: 1px solid #dfe6ee; border-radius: 999px; padding: 6px 12px;">Órdenes de servicio</span><span style="font-size: 13px; font-weight: 600; color: #1b2a41; background: #f7f9fc; border: 1px solid #dfe6ee; border-radius: 999px; padding: 6px 12px;">Agenda</span><span style="font-size: 13px; font-weight: 600; color: #1b2a41; background: #f7f9fc; border: 1px solid #dfe6ee; border-radius: 999px; padding: 6px 12px;">Viajes</span><span style="font-size: 13px; font-weight: 600; color: #1b2a41; background: #f7f9fc; border: 1px solid #dfe6ee; border-radius: 999px; padding: 6px 12px;">Clientes</span><span style="font-size: 13px; font-weight: 600; color: #1b2a41; background: #f7f9fc; border: 1px solid #dfe6ee; border-radius: 999px; padding: 6px 12px;">Cotizaciones</span><span style="font-size: 13px; font-weight: 600; color: #1b2a41; background: #f7f9fc; border: 1px solid #dfe6ee; border-radius: 999px; padding: 6px 12px;">Cobros</span><span style="font-size: 13px; font-weight: 600; color: #1b2a41; background: #f7f9fc; border: 1px solid #dfe6ee; border-radius: 999px; padding: 6px 12px;">Gastos</span><span style="font-size: 13px; font-weight: 600; color: #1b2a41; background: #f7f9fc; border: 1px solid #dfe6ee; border-radius: 999px; padding: 6px 12px;">Liquidaciones</span><span style="font-size: 13px; font-weight: 600; color: #1b2a41; background: #f7f9fc; border: 1px solid #dfe6ee; border-radius: 999px; padding: 6px 12px;">Equipos</span><span style="font-size: 13px; font-weight: 600; color: #1b2a41; background: #f7f9fc; border: 1px solid #dfe6ee; border-radius: 999px; padding: 6px 12px;">Inventario</span><span style="font-size: 13px; font-weight: 600; color: #1b2a41; background: #f7f9fc; border: 1px solid #dfe6ee; border-radius: 999px; padding: 6px 12px;">Catálogo</span><span style="font-size: 13px; font-weight: 600; color: #1b2a41; background: #f7f9fc; border: 1px solid #dfe6ee; border-radius: 999px; padding: 6px 12px;">Proveedores</span></div>
-            </div>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px;">
-                <div style="border: 1px solid #dfe6ee; border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 14px; background: #f7f9fc;">
-                    <div style="font-family: 'Sora', sans-serif; font-weight: 600; font-size: 20px;">Esencial</div>
-                    <div><span style="font-family: 'Sora', sans-serif; font-weight: 700; font-size: 36px;">1,5 UF</span><span style="font-size: 14px; color: #46566a;"> + IVA / mes</span></div>
-                    <div data-uf-monto="1.5" hidden style="font-size: 13px; color: #46566a; margin-top: -8px;"></div>
-                    <ul style="margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 8px; font-size: 15px; color: #3a4a5e;">
-                        <li>6 módulos a elección</li>
-                        <li>Hasta 5 usuarios</li>
-                        <li>100 órdenes de servicio al mes</li>
-                        <li>10 GB de almacenamiento</li>
-                    </ul>
-                    <a href="#contacto" data-plan="Esencial" style="margin-top: auto; display: inline-block; text-align: center; font-weight: 700; font-size: 15px; text-decoration: none; padding: 12px 20px; border-radius: 999px; box-sizing: border-box; color: #1b2a41; border: 2px solid #1b2a41;">Solicitar prueba gratis</a>
-                </div>
-                <div style="border: 1px solid #dfe6ee; border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 14px; background: #f7f9fc;">
-                    <div style="font-family: 'Sora', sans-serif; font-weight: 600; font-size: 20px;">Operación</div>
-                    <div><span style="font-family: 'Sora', sans-serif; font-weight: 700; font-size: 36px;">3,5 UF</span><span style="font-size: 14px; color: #46566a;"> + IVA / mes</span></div>
-                    <div data-uf-monto="3.5" hidden style="font-size: 13px; color: #46566a; margin-top: -8px;"></div>
-                    <ul style="margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 8px; font-size: 15px; color: #3a4a5e;">
-                        <li>10 módulos a elección</li>
-                        <li>Hasta 15 usuarios</li>
-                        <li>Órdenes de servicio sin límite</li>
-                        <li>25 GB de almacenamiento</li>
-                    </ul>
-                    <a href="#contacto" data-plan="Operación" style="margin-top: auto; display: inline-block; text-align: center; font-weight: 700; font-size: 15px; text-decoration: none; padding: 12px 20px; border-radius: 999px; box-sizing: border-box; color: #1b2a41; border: 2px solid #1b2a41;">Solicitar prueba gratis</a>
-                </div>
-                <div style="border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 14px; background: #0b1422; color: #ffffff;">
-                    <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px;">
-                        <span style="font-family: 'Sora', sans-serif; font-weight: 600; font-size: 20px;">Pro</span>
-                        <span style="font-size: 12px; font-weight: 700; background: #f7b267; color: #0b1422; padding: 4px 10px; border-radius: 999px;">Más completo</span>
-                    </div>
-                    <div><span style="font-family: 'Sora', sans-serif; font-weight: 700; font-size: 36px;">6 UF</span><span style="font-size: 14px; color: #c9d5e4;"> + IVA / mes</span></div>
-                    <div data-uf-monto="6" hidden style="font-size: 13px; color: #c9d5e4; margin-top: -8px;"></div>
-                    <ul style="margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 8px; font-size: 15px; color: #e3ebf5;">
-                        <li>Todos los módulos</li>
-                        <li>Hasta 30 usuarios</li>
-                        <li>50 GB de almacenamiento</li>
-                        <li>Informes con IA sin tope y asistente</li>
-                    </ul>
-                    <a href="#contacto" data-plan="Pro" style="margin-top: auto; display: inline-block; text-align: center; font-weight: 700; font-size: 15px; text-decoration: none; padding: 12px 20px; border-radius: 999px; box-sizing: border-box; background: #f7b267; color: #0b1422; border: 2px solid #f7b267;">Solicitar prueba gratis</a>
-                </div>
-            </div>
-        </div>
+<section class="s s--white" id="planes">
+  <div class="wrap stack" style="--gap: 32px">
+    <div class="stack measure" style="--gap: 12px">
+      <h2>Planes simples, en UF</h2>
+      <p class="lead">Precios mensuales en UF + IVA. Empieza con una prueba gratis de 7 días con todo incluido.</p>
+      <div class="chips" style="align-items: center; margin-top: 6px"><b class="small" style="margin-right: 4px">Módulos de Bitácora:</b><span class="chip chip--light">Órdenes de servicio</span><span class="chip chip--light">Agenda</span><span class="chip chip--light">Viajes</span><span class="chip chip--light">Clientes</span><span class="chip chip--light">Cotizaciones</span><span class="chip chip--light">Cobros</span><span class="chip chip--light">Gastos</span><span class="chip chip--light">Liquidaciones</span><span class="chip chip--light">Equipos</span><span class="chip chip--light">Inventario</span><span class="chip chip--light">Catálogo</span><span class="chip chip--light">Proveedores</span></div>
     </div>
-
-    <!-- CASO DE ÉXITO -->
-    <div id="caso" style="background: #f7f9fc; color: #1b2a41;">
-        <div style="max-width: 1240px; margin: 0 auto; padding: 96px 32px; box-sizing: border-box; display: flex; flex-direction: column; gap: 32px;">
-            <h2 style="margin: 0; font-family: 'Sora', sans-serif; font-weight: 700; font-size: clamp(30px, 4vw, 48px); letter-spacing: -1.2px;">Historias de operaciones reales</h2>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr)); gap: 24px;">
-
-                <!-- Transportes Itineris -->
-                <div class="caso-card" style="background: #0b1422; color: #ffffff; border-radius: 28px; box-sizing: border-box; display: flex; flex-direction: column; gap: 16px;">
-                    <div style="font-size: 13px; letter-spacing: 1.4px; text-transform: uppercase; font-weight: 600; color: #f7b267;">Caso de estudio — Cliente piloto</div>
-                    <div style="font-family: 'Sora', sans-serif; font-weight: 700; font-size: 30px; letter-spacing: -0.8px; line-height: 1.15;">Transportes Itineris: Bitácora nació en una operación real</div>
-                    <p style="margin: 0; color: #c9d5e4; line-height: 1.6; font-size: 16px;">Viajes, choferes, cobros y mantención de flota funcionando día a día. Lo que más ordenó la operación no fue la tecnología, sino que cada trabajo tuviera un dueño, un estado y un cobro claro.</p>
-                    <div style="display: flex; flex-wrap: wrap; gap: 8px; border-top: 1px solid #1d3250; padding-top: 16px; margin-top: auto;"><span style="font-size: 12px; color: #8fa1b8; align-self: center;">Usan:</span><span style="font-size: 12px; font-weight: 600; color: #e3ebf5; border: 1px solid #27405f; border-radius: 999px; padding: 5px 11px;">Viajes</span><span style="font-size: 12px; font-weight: 600; color: #e3ebf5; border: 1px solid #27405f; border-radius: 999px; padding: 5px 11px;">Cobros</span><span style="font-size: 12px; font-weight: 600; color: #e3ebf5; border: 1px solid #27405f; border-radius: 999px; padding: 5px 11px;">Flota y mantención</span></div>
-                    <!-- TODO cita textual del cliente (con nombre y cargo, autorizada por escrito) y logo -->
-                </div>
-
-                <!-- Hidroservi -->
-                <div class="caso-card" style="background: #0b1422; color: #ffffff; border-radius: 28px; box-sizing: border-box; display: flex; flex-direction: column; gap: 16px;">
-                    <div style="font-size: 13px; letter-spacing: 1.4px; text-transform: uppercase; font-weight: 600; color: #f7b267;">Cliente — Mantención de sistemas de agua</div>
-                    <div style="font-family: 'Sora', sans-serif; font-weight: 700; font-size: 30px; letter-spacing: -0.8px; line-height: 1.15;">Hidroservi: menos horas en informes</div>
-                    <div style="display: flex; flex-direction: column; gap: 4px; border-left: 3px solid #f7b267; padding-left: 16px;">
-                        <div style="font-family: 'Sora', sans-serif; font-weight: 700; font-size: 34px; color: #f7b267; line-height: 1.1;">≥ 20 horas-hombre</div>
-                        <div style="font-size: 14px; color: #c9d5e4;">ahorradas al mes en la elaboración de informes, según la propia empresa</div>
-                    </div>
-                    <p style="margin: 0; color: #c9d5e4; line-height: 1.6; font-size: 16px;">Con unos 4 técnicos y cerca de 30 órdenes de servicio al mes, Hidroservi usa Bitácora en su operación diaria.</p>
-                    <div style="display: flex; flex-wrap: wrap; gap: 8px; border-top: 1px solid #1d3250; padding-top: 16px; margin-top: auto;"><span style="font-size: 12px; color: #8fa1b8; align-self: center;">Usan:</span><span style="font-size: 12px; font-weight: 600; color: #e3ebf5; border: 1px solid #27405f; border-radius: 999px; padding: 5px 11px;">Órdenes de servicio</span><span style="font-size: 12px; font-weight: 600; color: #e3ebf5; border: 1px solid #27405f; border-radius: 999px; padding: 5px 11px;">Informes</span></div>
-                    <!-- TODO cita textual y logo de Hidroservi (la cifra ya está confirmada por escrito) -->
-                </div>
-
-
-            </div>
-        </div>
+    <div class="grid" style="--min: 240px">
+      <article class="plan">
+        <h3>Esencial</h3>
+        <div class="plan__price">1,5 UF<small> + IVA / mes</small></div>
+        <div class="plan__clp" data-uf-monto="1.5" hidden></div>
+        <ul><li>6 módulos a elección</li><li>Hasta 5 usuarios</li><li>100 órdenes de servicio al mes</li><li>10 GB de almacenamiento</li></ul>
+        <a class="btn btn--outline-dark" href="#contacto" data-plan="Esencial">Solicitar prueba gratis</a>
+      </article>
+      <article class="plan">
+        <h3>Operación</h3>
+        <div class="plan__price">3,5 UF<small> + IVA / mes</small></div>
+        <div class="plan__clp" data-uf-monto="3.5" hidden></div>
+        <ul><li>10 módulos a elección</li><li>Hasta 15 usuarios</li><li>Órdenes de servicio sin límite</li><li>25 GB de almacenamiento</li></ul>
+        <a class="btn btn--outline-dark" href="#contacto" data-plan="Operación">Solicitar prueba gratis</a>
+      </article>
+      <article class="plan plan--pro">
+        <div class="plan__head"><h3>Pro</h3><span class="badge">Más completo</span></div>
+        <div class="plan__price">6 UF<small> + IVA / mes</small></div>
+        <div class="plan__clp" data-uf-monto="6" hidden></div>
+        <ul><li>Todos los módulos</li><li>Hasta 30 usuarios</li><li>50 GB de almacenamiento</li><li>Informes con IA sin tope y asistente</li></ul>
+        <a class="btn btn--primary" href="#contacto" data-plan="Pro">Solicitar prueba gratis</a>
+      </article>
     </div>
+  </div>
+</section>
 
-    <!-- ASESORÍAS -->
-    <div id="asesorias" style="background: #0b1422;">
-        <div style="max-width: 1240px; margin: 0 auto; padding: 96px 32px; box-sizing: border-box; display: flex; flex-direction: column; gap: 40px;">
-            <div style="display: flex; flex-direction: column; gap: 14px; max-width: 780px;">
-                <div style="font-size: 14px; letter-spacing: 1.8px; text-transform: uppercase; font-weight: 600; color: #f7b267;">Asesorías</div>
-                <h2 style="margin: 0; font-family: 'Sora', sans-serif; font-weight: 700; font-size: clamp(30px, 4vw, 48px); letter-spacing: -1.2px; line-height: 1.1;">Ingeniería que opera en producción, a tu lado</h2>
-                <p style="margin: 0; font-size: 18px; line-height: 1.6; color: #c9d5e4;">Más de 15 años de trayectoria en arquitectura cloud, alta disponibilidad y entornos bancarios críticos, para empresas medianas y grandes que quieren modernizar su plataforma, ordenar su infraestructura y usar IA donde realmente aporta.</p>
-                <div style="display: flex; flex-wrap: wrap; gap: 8px;">
-                    <span style="font-size: 13px; font-weight: 600; color: #e3ebf5; border: 1px solid #27405f; border-radius: 999px; padding: 6px 12px;">Terraform</span>
-                    <span style="font-size: 13px; font-weight: 600; color: #e3ebf5; border: 1px solid #27405f; border-radius: 999px; padding: 6px 12px;">Kubernetes</span>
-                    <span style="font-size: 13px; font-weight: 600; color: #e3ebf5; border: 1px solid #27405f; border-radius: 999px; padding: 6px 12px;">OpenShift</span>
-                    <span style="font-size: 13px; font-weight: 600; color: #e3ebf5; border: 1px solid #27405f; border-radius: 999px; padding: 6px 12px;">GitHub</span>
-                    <span style="font-size: 13px; font-weight: 600; color: #e3ebf5; border: 1px solid #27405f; border-radius: 999px; padding: 6px 12px;">Observabilidad</span>
-                </div>
-            </div>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 24px;">
-                <div style="background: #14213a; border-radius: 20px; padding: 30px; display: flex; flex-direction: column; gap: 14px; border: 1px solid #27405f;">
-                    <div style="font-size: 13px; letter-spacing: 1.2px; text-transform: uppercase; font-weight: 600; color: #f7b267;">1 a 2 semanas</div>
-                    <div style="font-family: 'Sora', sans-serif; font-weight: 600; font-size: 22px; line-height: 1.25;">Diagnóstico de IA y automatización</div>
-                    <p style="margin: 0; color: #d5dfec; line-height: 1.6; font-size: 15px;">Priorizamos los casos de uso con impacto real y te entregamos un plan de 90 días.</p>
-                    <div style="font-size: 14px; font-weight: 600;">Entregable: mapa de oportunidades y hoja de ruta</div>
-                    <div style="font-size: 15px; color: #f7b267; font-weight: 700;">Desde 25 UF + IVA</div>
-                </div>
-                <div style="background: #14213a; border-radius: 20px; padding: 30px; display: flex; flex-direction: column; gap: 14px; border: 1px solid #27405f;">
-                    <div style="font-size: 13px; letter-spacing: 1.2px; text-transform: uppercase; font-weight: 600; color: #f7b267;">Por proyecto o sprint</div>
-                    <div style="font-family: 'Sora', sans-serif; font-weight: 600; font-size: 22px; line-height: 1.25;">Cloud e infraestructura como código</div>
-                    <p style="margin: 0; color: #d5dfec; line-height: 1.6; font-size: 15px;">Terraform, Kubernetes y OpenShift, GitHub y observabilidad: auditoría, arquitectura e implementación.</p>
-                    <div style="font-size: 14px; font-weight: 600;">Entregable: código versionado y documentación</div>
-                    <div style="font-size: 15px; color: #f7b267; font-weight: 700;">A cotizar según alcance</div>
-                </div>
-                <div style="background: #14213a; border-radius: 20px; padding: 30px; display: flex; flex-direction: column; gap: 14px; border: 1px solid #27405f;">
-                    <div style="font-size: 13px; letter-spacing: 1.2px; text-transform: uppercase; font-weight: 600; color: #f7b267;">Piloto de 4 a 6 semanas</div>
-                    <div style="font-family: 'Sora', sans-serif; font-weight: 600; font-size: 22px; line-height: 1.25;">IA a medida para tu operación</div>
-                    <p style="margin: 0; color: #d5dfec; line-height: 1.6; font-size: 15px;">Asistentes y automatizaciones conectados a tus sistemas, con control de datos y trazabilidad.</p>
-                    <div style="font-size: 14px; font-weight: 600;">Entregable: piloto funcionando y medición de resultados</div>
-                    <div style="font-size: 15px; color: #f7b267; font-weight: 700;">A cotizar según alcance</div>
-                </div>
-            </div>
-        </div>
+<section class="s s--paper" id="caso">
+  <div class="wrap stack" style="--gap: 32px">
+    <h2>Historias de operaciones reales</h2>
+    <div class="grid" style="--min: 340px; --gap: 24px">
+      <article class="case">
+  <div class="eyebrow">Caso de estudio — Cliente piloto</div>
+  <h3>Transportes Itineris: Bitácora nació en una operación real</h3>
+  <p>Viajes, choferes, cobros y mantención de flota funcionando día a día. Lo que más ordenó la operación no fue la tecnología, sino que cada trabajo tuviera un dueño, un estado y un cobro claro.</p>
+  <div class="case__uses"><span>Usan:</span><span class="chip">Viajes</span><span class="chip">Cobros</span><span class="chip">Flota y mantención</span></div>
+  <!-- TODO cita textual del cliente (con nombre y cargo; todos los clientes autorizaron) y logo -->
+</article>
+      <article class="case">
+  <div class="eyebrow">Cliente — Mantención de sistemas de agua</div>
+  <h3>Hidroservi: menos horas en informes</h3>
+  <div class="case__metric">
+    <b>≥ 20 horas-hombre</b>
+    <span>ahorradas al mes en la elaboración de informes, según la propia empresa</span>
+  </div>
+  <p>Con unos 4 técnicos y cerca de 30 órdenes de servicio al mes, Hidroservi usa Bitácora en su operación diaria.</p>
+  <div class="case__uses"><span>Usan:</span><span class="chip">Órdenes de servicio</span><span class="chip">Informes</span></div>
+  <!-- TODO cita textual y logo de Hidroservi (la cifra ya está confirmada por escrito) -->
+</article>
     </div>
+  </div>
+</section>
 
-    <!-- QUIÉNES SOMOS -->
-    <div id="nosotros" style="background: #14213a;">
-        <div style="max-width: 1240px; margin: 0 auto; padding: 96px 32px; box-sizing: border-box; display: flex; flex-wrap: wrap; align-items: center; gap: 48px;">
-            <!-- TODO foto de Carlos Quiroz (img 320x320, con alt): reemplazar este bloque cuando esté disponible -->
-            <div style="flex: 0 1 220px; aspect-ratio: 1; min-width: 160px; border-radius: 28px; background: #1d3250; border: 1px solid #27405f; display: flex; align-items: center; justify-content: center;">
-                <svg aria-hidden="true" width="96" height="96" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="10" width="44" height="12" rx="4" fill="#f7b267"></rect><rect x="14" y="26" width="44" height="12" rx="4" fill="#e0701a"></rect><rect x="6" y="42" width="44" height="12" rx="4" fill="#ffffff"></rect></svg>
-            </div>
-            <div style="flex: 1 1 420px; display: flex; flex-direction: column; gap: 18px; max-width: 760px;">
-                <div style="font-size: 14px; letter-spacing: 1.8px; text-transform: uppercase; font-weight: 600; color: #f7b267;">Quiénes somos</div>
-                <h2 style="margin: 0; font-family: 'Sora', sans-serif; font-weight: 700; font-size: clamp(30px, 4vw, 44px); letter-spacing: -1.2px; line-height: 1.1;">Ingeniería de producción, aplicada al trabajo en terreno</h2>
-                <p style="margin: 0; font-size: 18px; line-height: 1.6; color: #c9d5e4;">EstratoTech nace de más de 15 años como Cloud Engineer y SRE en TI y banca, donde la disponibilidad no es negociable. Esa disciplina es la que llevamos a Bitácora, construida junto a una operación real de transporte, y a cada asesoría.</p>
-                <div style="font-size: 16px; color: #e3ebf5;"><strong>Carlos Quiroz</strong> · Gerente General · <a href="https://www.linkedin.com/in/carlos-quiroz-3740b2104/" target="_blank" rel="noopener" style="color: #f7b267; font-weight: 600;">LinkedIn</a></div>
-                <div><a href="#contacto" style="color: #f7b267; font-weight: 700;">Conversemos →</a></div>
-            </div>
-        </div>
+<section class="s s--dark" id="asesorias">
+  <div class="wrap stack" style="--gap: 40px">
+    <div class="stack measure" style="--gap: 14px">
+      <div class="eyebrow">Asesorías</div>
+      <h2>Ingeniería que opera en producción, a tu lado</h2>
+      <p class="lead" style="max-width: none">Más de 15 años de trayectoria en arquitectura cloud, alta disponibilidad y entornos bancarios críticos, para empresas medianas y grandes que quieren modernizar su plataforma, ordenar su infraestructura y usar IA donde realmente aporta.</p>
+      <div class="chips"><span class="chip">Terraform</span><span class="chip">Kubernetes</span><span class="chip">OpenShift</span><span class="chip">GitHub</span><span class="chip">Observabilidad</span></div>
     </div>
+    <div class="grid" style="--min: 290px; --gap: 24px">
+  <article class="card card--line">
+    <div class="card__kicker">1 a 2 semanas</div>
+    <h3>Diagnóstico de IA y automatización</h3>
+    <p>Priorizamos los casos de uso con impacto real y te entregamos un plan de 90 días.</p>
+    <div class="card__meta">Entregable: mapa de oportunidades y hoja de ruta</div>
+    <div class="card__price">Desde 25 UF + IVA</div>
+  </article>
+  <article class="card card--line">
+    <div class="card__kicker">Por proyecto o sprint</div>
+    <h3>Cloud e infraestructura como código</h3>
+    <p>Terraform, Kubernetes y OpenShift, GitHub y observabilidad: auditoría, arquitectura e implementación.</p>
+    <div class="card__meta">Entregable: código versionado y documentación</div>
+    <div class="card__price">A cotizar según alcance</div>
+  </article>
+  <article class="card card--line">
+    <div class="card__kicker">Piloto de 4 a 6 semanas</div>
+    <h3>IA a medida para tu operación</h3>
+    <p>Asistentes y automatizaciones conectados a tus sistemas, con control de datos y trazabilidad.</p>
+    <div class="card__meta">Entregable: piloto funcionando y medición de resultados</div>
+    <div class="card__price">A cotizar según alcance</div>
+  </article>
+</div>
+    <div><a class="btn btn--outline" href="/asesorias">Ver todas las asesorías</a></div>
+  </div>
+</section>
 
-    <!-- CONTACTO -->
-    <div id="contacto" style="background: #f7b267; color: #0b1422;">
-        <div style="max-width: 1240px; margin: 0 auto; padding: 96px 32px; box-sizing: border-box; display: flex; flex-wrap: wrap; gap: 48px; align-items: center;">
-            <div style="flex: 1 1 340px; display: flex; flex-direction: column; gap: 18px;">
-                <h2 style="margin: 0; font-family: 'Sora', sans-serif; font-weight: 700; font-size: clamp(32px, 4.4vw, 56px); letter-spacing: -1.4px; line-height: 1.05;">Cuéntanos cómo podemos ayudarte</h2>
-                <p style="margin: 0; font-size: 18px; line-height: 1.6; max-width: 460px;">Te respondemos con una demo de Bitácora o una propuesta de asesoría especializada.</p>
-                <p style="margin: 0; font-size: 16px;">También puedes escribirnos a <a href="mailto:contacto@estratotech.cl" style="color: #0b1422; font-weight: 700;">contacto@estratotech.cl</a></p>
-                <div><a href="https://wa.me/56978099416?text=Hola%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Bit%C3%A1cora." target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 10px; background: #0b1422; color: #ffffff; font-weight: 700; text-decoration: none; padding: 14px 24px; border-radius: 999px; font-size: 16px;"><span style="color: #25d366; display: inline-flex;"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M4 3h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H9.5L5 21.5V17H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/></svg></span>Escríbenos por WhatsApp · +56 9 7809 9416</a></div>
-            </div>
-            <div style="flex: 1 1 420px; background: #ffffff; border-radius: 24px; padding: 32px; box-sizing: border-box;">
-                <form id="contactForm" style="display: flex; flex-direction: column; gap: 16px;">
-                    <div style="display: flex; flex-direction: column; gap: 6px;">
-                        <label for="reto" style="font-size: 14px; font-weight: 600;">Tu reto u objetivo</label>
-                        <textarea id="reto" name="reto" rows="3" required maxlength="3000" style="border: 1.5px solid #8fa1b8; border-radius: 12px; padding: 12px 14px; font-size: 16px; font-family: 'Manrope', sans-serif; width: 100%; box-sizing: border-box;"></textarea>
-                    </div>
-                    <div style="display: flex; flex-wrap: wrap; gap: 16px;">
-                        <div style="flex: 1 1 180px; display: flex; flex-direction: column; gap: 6px;"><label for="nombre" style="font-size: 14px; font-weight: 600;">Nombre</label><input id="nombre" name="nombre" type="text" required maxlength="80" autocomplete="name" style="height: 48px; border: 1.5px solid #8fa1b8; border-radius: 12px; padding: 0 14px; width: 100%; box-sizing: border-box; font-size: 16px; font-family: 'Manrope', sans-serif; background: #ffffff;"></div>
-                        <div style="flex: 1 1 180px; display: flex; flex-direction: column; gap: 6px;"><label for="email" style="font-size: 14px; font-weight: 600;">Correo</label><input id="email" name="email" type="email" required maxlength="160" autocomplete="email" style="height: 48px; border: 1.5px solid #8fa1b8; border-radius: 12px; padding: 0 14px; width: 100%; box-sizing: border-box; font-size: 16px; font-family: 'Manrope', sans-serif; background: #ffffff;"></div>
-                    </div>
-                    <div style="display: flex; flex-wrap: wrap; gap: 16px;">
-                        <div style="flex: 1 1 180px; display: flex; flex-direction: column; gap: 6px;"><label for="empresa" style="font-size: 14px; font-weight: 600;">Empresa</label><input id="empresa" name="empresa" type="text" required maxlength="120" autocomplete="organization" style="height: 48px; border: 1.5px solid #8fa1b8; border-radius: 12px; padding: 0 14px; width: 100%; box-sizing: border-box; font-size: 16px; font-family: 'Manrope', sans-serif; background: #ffffff;"></div>
-                        <div style="flex: 1 1 180px; display: flex; flex-direction: column; gap: 6px;"><label for="interes" style="font-size: 14px; font-weight: 600;">Me interesa</label>
-                            <select id="interes" name="interes" style="height: 48px; border: 1.5px solid #8fa1b8; border-radius: 12px; padding: 0 14px; width: 100%; box-sizing: border-box; font-size: 16px; font-family: 'Manrope', sans-serif; background: #ffffff;">
-                                <option>Prueba gratis de 7 días</option>
-                                <option>Demo de Bitácora</option>
-                                <option>Diagnóstico de IA y automatización</option>
-                                <option>Cloud e infraestructura como código</option>
-                                <option>IA a medida</option>
-                                <option>Otro</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div style="display: flex; flex-direction: column; gap: 6px;">
-                        <label for="plan" style="font-size: 14px; font-weight: 600;">Plan de Bitácora (si ya sabes cuál)</label>
-                        <select id="plan" name="plan" style="height: 48px; border: 1.5px solid #8fa1b8; border-radius: 12px; padding: 0 14px; width: 100%; box-sizing: border-box; font-size: 16px; font-family: 'Manrope', sans-serif; background: #ffffff;">
-                            <option value="">Aún no lo sé</option>
-                            <option>Esencial</option>
-                            <option>Operación</option>
-                            <option>Pro</option>
-                        </select>
-                    </div>
-                    <!-- Anti-spam: campo trampa (los bots lo llenan, las personas no lo ven) -->
-                    <div aria-hidden="true" style="position: absolute; left: -9999px; height: 0; overflow: hidden;">
-                        <label for="website">No completar</label>
-                        <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
-                    </div>
-                    <div id="turnstileBox"></div>
-                    <div id="formError" role="alert" hidden style="background: #fef2f2; border: 1px solid #fecaca; color: #991b1b; border-radius: 12px; padding: 12px 14px; font-size: 14px; line-height: 1.5;"></div>
-                    <button id="formBtn" type="submit" style="height: 54px; border: 0; border-radius: 12px; background: #0b1422; color: #ffffff; font-size: 16px; font-weight: 700; cursor: pointer; margin-top: 8px;">Enviar mensaje</button>
-                </form>
-                <div id="formSuccess" role="status" hidden style="background: #ecfdf5; border: 1px solid #a7f3d0; color: #065f46; border-radius: 16px; padding: 24px; text-align: center; line-height: 1.5;">
-                    <div style="font-family: 'Sora', sans-serif; font-weight: 700; font-size: 20px; margin-bottom: 6px;">¡Mensaje recibido!</div>
-                    Te contactaremos pronto con una demo o una propuesta.
-                </div>
-            </div>
-        </div>
+<section class="s s--navy" id="nosotros">
+  <div class="wrap split">
+    <!-- TODO foto de Carlos Quiroz (img 320x320, con alt): reemplazar este bloque cuando esté disponible -->
+    <div class="avatar" style="flex: 0 1 220px">
+      <svg aria-hidden="true" width="96" height="96" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="10" width="44" height="12" rx="4" fill="#f7b267"/><rect x="14" y="26" width="44" height="12" rx="4" fill="#e0701a"/><rect x="6" y="42" width="44" height="12" rx="4" fill="#ffffff"/></svg>
     </div>
-
-    <!-- FOOTER -->
-    <div style="background: #060c17; color: #b6c3d4;">
-        <div style="max-width: 1240px; margin: 0 auto; padding: 36px 32px; box-sizing: border-box; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px;">
-            <div style="font-size: 14px;">© 2026 EstratoTech SpA — RUT 78.520.345-3 · Santiago, Chile</div>
-            <div style="display: flex; gap: 22px; font-size: 14px;">
-                <a href="https://wa.me/56978099416?text=Hola%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Bit%C3%A1cora." target="_blank" rel="noopener" style="color: #b6c3d4; text-decoration: none;">WhatsApp</a>
-                <a href="https://www.linkedin.com/in/carlos-quiroz-3740b2104/" target="_blank" rel="noopener" style="color: #b6c3d4; text-decoration: none;">LinkedIn</a>
-                <!-- TODO Instagram (más adelante): pegar el enlace real y descomentar
-                <a href="https://www.instagram.com/REEMPLAZAR" target="_blank" rel="noopener" style="color: #b6c3d4; text-decoration: none;">Instagram</a>
-                -->
-                <a href="/terminos" style="color: #b6c3d4; text-decoration: none;">Términos</a>
-                <a href="/privacidad" style="color: #b6c3d4; text-decoration: none;">Privacidad</a>
-            </div>
-        </div>
+    <div class="stack measure" style="--gap: 18px">
+      <div class="eyebrow">Quiénes somos</div>
+      <h2>Ingeniería de producción, aplicada al trabajo en terreno</h2>
+      <p class="lead" style="max-width: none; font-size: 18px">EstratoTech nace de más de 15 años como Cloud Engineer y SRE en TI y banca, donde la disponibilidad no es negociable. Esa disciplina es la que llevamos a Bitácora, construida junto a una operación real de transporte, y a cada asesoría.</p>
+      <p style="font-size: 16px; color: var(--text-soft)"><strong>Carlos Quiroz</strong> · Gerente General · <a class="link" href="https://www.linkedin.com/in/carlos-quiroz-3740b2104/" target="_blank" rel="noopener">LinkedIn</a></p>
+      <div><a class="link" href="#contacto">Conversemos →</a></div>
     </div>
-    <a class="wa-float" href="https://wa.me/56978099416?text=Hola%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Bit%C3%A1cora." target="_blank" rel="noopener" aria-label="Escribir por WhatsApp"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M4 3h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H9.5L5 21.5V17H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/></svg><span>WhatsApp</span></a>
+  </div>
+</section>
 
-    <script>
-        // Turnstile (anti-spam de Cloudflare): pegar aquí la "site key" pública cuando se cree el widget. Vacío = sin Turnstile.
-        const TURNSTILE_SITE_KEY = '';
-        const MAIL_RESPALDO = 'contacto@estratotech.cl';
+<section class="s s--amber" id="contacto">
+  <div class="wrap split">
+    <div class="stack" style="--gap: 18px">
+      <h2>Cuéntanos cómo podemos ayudarte</h2>
+      <p class="lead">Te respondemos con una demo de Bitácora o una propuesta de asesoría especializada.</p>
+      <p>También puedes escribirnos a <a href="mailto:contacto@estratotech.cl"><b>contacto@estratotech.cl</b></a></p>
+      <div><a class="btn btn--wa" href="https://wa.me/56978099416?text=Hola%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Bit%C3%A1cora." target="_blank" rel="noopener"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M4 3h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H9.5L5 21.5V17H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/></svg>Escríbenos por WhatsApp · +56 9 7809 9416</a></div>
+    </div>
+    <div class="form-box">
+      <form class="form" id="contactForm">
+        <div class="field">
+          <label for="reto">Tu reto u objetivo</label>
+          <textarea id="reto" name="reto" rows="3" required maxlength="3000"></textarea>
+        </div>
+        <div class="fields">
+          <div class="field"><label for="nombre">Nombre</label><input id="nombre" name="nombre" type="text" required maxlength="80" autocomplete="name"></div>
+          <div class="field"><label for="email">Correo</label><input id="email" name="email" type="email" required maxlength="160" autocomplete="email"></div>
+        </div>
+        <div class="fields">
+          <div class="field"><label for="empresa">Empresa</label><input id="empresa" name="empresa" type="text" required maxlength="120" autocomplete="organization"></div>
+          <div class="field"><label for="interes">Me interesa</label>
+            <select id="interes" name="interes">
+              <option>Prueba gratis de 7 días</option>
+              <option>Demo de Bitácora</option>
+              <option>Diagnóstico de IA y automatización</option>
+              <option>Cloud e infraestructura como código</option>
+              <option>IA a medida</option>
+              <option>Otro</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label for="plan">Plan de Bitácora (si ya sabes cuál)</label>
+          <select id="plan" name="plan">
+            <option value="">Aún no lo sé</option>
+            <option>Esencial</option>
+            <option>Operación</option>
+            <option>Pro</option>
+          </select>
+        </div>
+        <!-- Anti-spam: campo trampa (los bots lo llenan, las personas no lo ven) -->
+        <div class="hp" aria-hidden="true">
+          <label for="website">No completar</label>
+          <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
+        </div>
+        <div id="turnstileBox"></div>
+        <div class="notice notice--error" id="formError" role="alert" hidden></div>
+        <button class="form__submit" id="formBtn" type="submit">Enviar mensaje</button>
+      </form>
+      <div class="notice notice--ok" id="formSuccess" role="status" hidden>
+        <b>¡Mensaje recibido!</b>
+        Te contactaremos pronto con una demo o una propuesta.
+      </div>
+    </div>
+  </div>
+</section>
 
-        const form = document.getElementById('contactForm');
-        const ok = document.getElementById('formSuccess');
-        const err = document.getElementById('formError');
-        const btn = document.getElementById('formBtn');
-        let turnstileToken = '';
-
-        if (TURNSTILE_SITE_KEY) {
-            window.onTurnstileLoad = function () {
-                window.turnstile.render('#turnstileBox', {
-                    sitekey: TURNSTILE_SITE_KEY,
-                    callback: function (t) { turnstileToken = t; },
-                    'expired-callback': function () { turnstileToken = ''; }
-                });
-            };
-            const s = document.createElement('script');
-            s.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onTurnstileLoad&render=explicit';
-            s.async = true; s.defer = true;
-            document.head.appendChild(s);
-        }
-
-
-        // Botones que preseleccionan plan/interés en el formulario
-        document.querySelectorAll('[data-plan], [data-interes]').forEach(function (a) {
-            a.addEventListener('click', function () {
-                if (a.dataset.plan) document.getElementById('plan').value = a.dataset.plan;
-                document.getElementById('interes').value = a.dataset.interes || 'Prueba gratis de 7 días';
-            });
-        });
-
-        // Equivalente aproximado en pesos (UF del día); si falla, simplemente no se muestra
-        fetch('/api/uf').then(function (r) { return r.ok ? r.json() : null; }).then(function (d) {
-            if (!d || !d.uf) return;
-            const fmt = new Intl.NumberFormat('es-CL');
-            document.querySelectorAll('[data-uf-monto]').forEach(function (el) {
-                el.textContent = '≈ $' + fmt.format(Math.round(d.uf * parseFloat(el.dataset.ufMonto))) + ' + IVA al mes (UF de hoy: $' + fmt.format(d.uf) + ')';
-                el.hidden = false;
-            });
-        }).catch(function () {});
-
-        function mostrarError(html) { err.innerHTML = html; err.hidden = false; }
-
-        form.addEventListener('submit', async function (e) {
-            e.preventDefault();
-            err.hidden = true;
-            if (TURNSTILE_SITE_KEY && !turnstileToken) {
-                mostrarError('Confirma la verificación de seguridad antes de enviar.');
-                return;
-            }
-            const textoBoton = btn.textContent;
-            btn.disabled = true;
-            btn.textContent = 'Enviando…';
-            const v = function (id) { return document.getElementById(id).value.trim(); };
-            const datos = {
-                reto: v('reto'), nombre: v('nombre'), email: v('email'),
-                empresa: v('empresa'), interes: v('interes'), plan: v('plan'),
-                website: v('website'), token: turnstileToken
-            };
-            try {
-                const r = await fetch('/api/contacto', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(datos)
-                });
-                if (!r.ok) throw new Error('http ' + r.status);
-                form.hidden = true;
-                ok.hidden = false;
-            } catch (x) {
-                mostrarError('No pudimos enviar tu mensaje. Escríbenos a <a href="mailto:' + MAIL_RESPALDO + '" style="color: #991b1b; font-weight: 700;">' + MAIL_RESPALDO + '</a> y te respondemos.');
-                btn.disabled = false;
-                btn.textContent = textoBoton;
-                if (window.turnstile) { window.turnstile.reset(); turnstileToken = ''; }
-            }
-        });
-    </script>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div>© 2026 EstratoTech SpA — RUT 78.520.345-3 · Santiago, Chile</div>
+    <nav aria-label="Pie de página">
+      <a href="https://wa.me/56978099416?text=Hola%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Bit%C3%A1cora." target="_blank" rel="noopener">WhatsApp</a>
+      <a href="https://www.linkedin.com/in/carlos-quiroz-3740b2104/" target="_blank" rel="noopener">LinkedIn</a>
+      <!-- TODO Instagram (más adelante): agregar el enlace real -->
+      <a href="/terminos">Términos</a>
+      <a href="/privacidad">Privacidad</a>
+    </nav>
+  </div>
+</footer>
+<a class="wa-float" href="https://wa.me/56978099416?text=Hola%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Bit%C3%A1cora." target="_blank" rel="noopener" aria-label="Escribir por WhatsApp"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M4 3h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H9.5L5 21.5V17H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/></svg><span>WhatsApp</span></a>
+<script src="/site.js" defer></script>
 </body>
 </html>
