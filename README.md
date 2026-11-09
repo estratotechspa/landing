@@ -28,6 +28,6 @@ Para activar Turnstile: crear el widget en Cloudflare > Turnstile y pegar la sit
 - [x] Botón "Ingresar": apunta a `https://app.estratotech.cl`.
 - [ ] Textos legales definitivos en `/terminos` y `/privacidad` (revisión del abogado; plazo Ley 21.719: 1 de diciembre de 2026).
 - [x] Hidroservi: cifra (≥ 20 horas-hombre al mes en informes; ~4 técnicos y ~30 OS al mes) confirmada por escrito.
-- [ ] Barra de datos: reemplazar "3 planes" y "Alcance claro" por cifras reales (empresas activas, etc.).
-- [ ] Logos y citas de clientes: solo con autorización escrita de cada uno.
+- [x] Barra de datos con cifras reales (4 empresas activas; actualizar el número cuando cambie).
+- [ ] Logos y citas de clientes (todos autorizaron): falta recibir los archivos de logo y los textos de las citas.
 - [ ] Publicar solo afirmaciones verificables: no prometer uptime/SLA, respaldos diarios ni plazos de implementación hasta que sean ciertos.
