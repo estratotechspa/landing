@@ -24,8 +24,10 @@ Antes de probar el formulario: crear la dirección `contacto@` en Email Routing 
 Para activar Turnstile: crear el widget en Cloudflare > Turnstile y pegar la site key (pública) en `TURNSTILE_SITE_KEY`, dentro del script de `index.html`.
 
 ## Pendientes antes de publicar
-- [ ] Caso Transportes VYC: completar el bloque comentado `TODO Transportes VYC` en `index.html` con datos reales.
+- [x] Caso Transportes VYC: se decidió no incluirlo por ahora (bloque eliminado).
 - [x] Botón "Ingresar": apunta a `https://app.estratotech.cl`.
 - [ ] Textos legales definitivos en `/terminos` y `/privacidad` (revisión del abogado; plazo Ley 21.719: 1 de diciembre de 2026).
-- [ ] Hidroservi: confirmar con ellos el texto del caso (≥ 20 horas-hombre al mes en informes; unos 4 técnicos y ~30 OS al mes).
+- [x] Hidroservi: cifra (≥ 20 horas-hombre al mes en informes; ~4 técnicos y ~30 OS al mes) confirmada por escrito.
+- [ ] Barra de datos: reemplazar "3 planes" y "Alcance claro" por cifras reales (empresas activas, etc.).
+- [ ] Logos y citas de clientes: solo con autorización escrita de cada uno.
 - [ ] Publicar solo afirmaciones verificables: no prometer uptime/SLA, respaldos diarios ni plazos de implementación hasta que sean ciertos.
