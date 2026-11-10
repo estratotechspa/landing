@@ -1,6 +1,6 @@
 // Generador estático sin dependencias: site/ -> public/ (lo que publica Cloudflare).
 // Uso: npm run build   (o: node build.mjs). Commitea también public/.
-import { readFileSync, writeFileSync, mkdirSync, cpSync, rmSync, readdirSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, cpSync, rmSync, readdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 
 const SITE = 'site';
@@ -49,6 +49,8 @@ function emit(meta, body, extra = {}) {
     title: escAttr(title),
     description: escAttr(description),
     canonical: ORIGIN + path,
+    // imagen para redes: site/static/og/<slug>.png si existe; si no, la general
+    ogimage: ORIGIN + (existsSync(join(SITE, 'static', 'og', `${path.slice(1)}.png`)) ? `/og/${path.slice(1)}.png` : '/og-image.png'),
     robots: meta.noindex ? '<meta name="robots" content="noindex">' : '',
   };
   let html = fill(expand(body), vars);
