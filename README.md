@@ -34,12 +34,7 @@ Antes de probar el formulario: crear la dirección `contacto@` en Email Routing 
 
 ## Activar Turnstile, base de contactos y analítica (pasos en Cloudflare)
 1. **Turnstile:** Cloudflare > Turnstile > Add widget (dominios `estratotech.cl` y `www.estratotech.cl`). Pegar la *site key* en `TURNSTILE_SITE_KEY` (inicio de `site/static/site.js`) y guardar la *secret key* como secreto `TURNSTILE_SECRET`. Compilar y desplegar.
-2. **Base de contactos (D1):**
-   ```
-   npx wrangler d1 create estratotech-leads
-   npx wrangler d1 migrations apply estratotech-leads --remote
-   ```
-   Descomentar el bloque `d1_databases` de `wrangler.jsonc` con el `database_id` entregado y desplegar. Ver los contactos: `npx wrangler d1 execute estratotech-leads --remote --command "SELECT * FROM leads ORDER BY id DESC LIMIT 20"`.
+2. **Base de contactos (D1):** ya conectada (`estratotech-leads`, binding `DB` en `wrangler.jsonc`). Si hubiera que recrearla: `npx wrangler d1 create estratotech-leads`, copiar el `database_id` a `wrangler.jsonc` y crear la tabla pegando `migrations/0001_leads.sql` en D1 > estratotech-leads > Console (o `npx wrangler d1 migrations apply estratotech-leads --remote` una vez que el bloque `d1_databases` esté en la configuración). No agregar el binding desde el panel: el próximo despliegue lo borraría, porque `wrangler.jsonc` manda. Ver los contactos: Console > `SELECT * FROM leads ORDER BY id DESC LIMIT 20;`. Eliminar los datos de una persona: `DELETE FROM leads WHERE email = '...';`.
 3. **Analítica sin cookies:** Cloudflare > Analytics & Logs > Web Analytics > Add site. Pegar el token en `CF_ANALYTICS_TOKEN` (inicio de `site/static/site.js`). La CSP de `_headers` ya permite el script.
 
 ## Pendientes
@@ -50,6 +45,6 @@ Antes de probar el formulario: crear la dirección `contacto@` en Email Routing 
 - [ ] Logos y citas de clientes (todos autorizaron): falta recibir los archivos de logo y los textos de las citas (hay `TODO` en `site/partials/case-*.html`).
 - [ ] Foto de Carlos Quiroz para la sección Quiénes somos (`TODO` en `site/pages/index.html`).
 - [ ] Textos legales definitivos en `/terminos` y `/privacidad` (revisión del abogado; plazo Ley 21.719: 1 de diciembre de 2026).
-- [ ] Activar Turnstile, D1 y Web Analytics (pasos arriba). Al activar D1, la confirmación por correo (Turnstile) o la analítica, **actualizar `/privacidad`** (`site/pages/privacidad.html`): debe mencionar el registro de contactos en Cloudflare, el correo automático de confirmación y las estadísticas de visitas sin cookies.
+- [ ] Activar Turnstile, D1 y Web Analytics (pasos arriba). Al activar la confirmación por correo (Turnstile) o la analítica, **actualizar `/privacidad`** (`site/pages/privacidad.html`): debe mencionar el correo automático de confirmación y las estadísticas de visitas sin cookies.
 - [ ] Probar `/api/uf` (mindicador.cl) en el preview desplegado.
 - [ ] Publicar solo afirmaciones verificables: no prometer uptime/SLA, respaldos diarios ni plazos de implementación hasta que sean ciertos.

@@ -8,8 +8,14 @@
     "run_worker_first": ["/api/*"]
   },
   "observability": { "enabled": true },
-  // Para guardar los contactos: crear la base con `npx wrangler d1 create estratotech-leads`,
-  // aplicar `npx wrangler d1 migrations apply estratotech-leads --remote` y descomentar (con el database_id entregado):
-  // "d1_databases": [{ "binding": "DB", "database_name": "estratotech-leads", "database_id": "REEMPLAZAR", "migrations_dir": "migrations" }],
+  // Registro de contactos del formulario (tabla `leads`, ver migrations/0001_leads.sql).
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "estratotech-leads",
+      "database_id": "e45c9198-dcd8-4b64-9be8-871d1191512d",
+      "migrations_dir": "migrations"
+    }
+  ],
   "previews": {}
 }
