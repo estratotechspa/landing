@@ -181,6 +181,9 @@ a.chip { text-decoration: none; }
 .legal p, .legal li { color: var(--muted); font-size: 17px; line-height: 1.6; }
 .legal ul { padding-left: 22px; display: flex; flex-direction: column; gap: 8px; margin: 12px 0; }
 .legal a { color: var(--amber); }
+.legal h2 { font-size: 22px; letter-spacing: -0.3px; line-height: 1.25; margin: 36px 0 12px; }
+.legal .meta { color: #8fa1b8; font-size: 14px; margin-bottom: 24px; }
+.legal strong { color: var(--text-soft); }
 .legal .tag { display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: var(--amber); border: 1px solid #5a6b85; border-radius: 999px; padding: 4px 12px; margin-bottom: 20px; }
 
 /* ---------- Móvil ---------- */
