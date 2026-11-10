@@ -7,7 +7,8 @@ Sitio estático generado con un script sin dependencias, más un Cloudflare Work
   - `pages/` páginas (`index`, `asesorias`, `terminos`, `privacidad`) y la plantilla `rubro.html`.
   - `data/rubros.json` contenido de `/transporte`, `/mantencion` y `/agenda` (título, descripción, textos y funciones).
   - `partials/` cabecera, formulario de contacto, pie, casos de éxito, tarjetas de asesorías, etc.
-  - `static/` `styles.css` (tokens de color en `:root`), `site.js` (menú móvil, formulario, UF), imágenes, `_headers`, `robots.txt`.
+  - `static/` `styles.css` (tokens de color en `:root`), `site.js` (menú móvil, formulario, UF), imágenes, `fonts/` (Sora y Manrope autoalojadas), `og/<slug>.png` (imagen para redes de cada página; si falta, se usa `og-image.png`), `_headers`, `robots.txt`.
+  - `pages/404.html` se publica como página de error (`not_found_handling: 404-page` en `wrangler.jsonc`).
 - `public/` — **salida generada** (lo que publica Cloudflare). No editar a mano; se commitea para que el despliegue no necesite paso de compilación.
 - `build.mjs` — genera `public/` desde `site/` y crea `sitemap.xml`.
 - `src/worker.js` — Worker (formulario con Resend, UF del día).

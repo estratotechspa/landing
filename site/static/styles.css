@@ -1,4 +1,7 @@
 /* EstratoTech — estilos compartidos. Fuente en site/static/styles.css (se copia a public/ con `npm run build`). */
+/* Fuentes autoalojadas (variables, subconjunto latino) */
+@font-face { font-family: 'Sora'; font-style: normal; font-weight: 300 700; font-display: swap; src: url(/fonts/sora-latin.woff2) format('woff2'); }
+@font-face { font-family: 'Manrope'; font-style: normal; font-weight: 400 700; font-display: swap; src: url(/fonts/manrope-latin.woff2) format('woff2'); }
 :root {
   --ink: #0b1422;
   --ink-deep: #060c17;
@@ -206,3 +209,12 @@ a.chip { text-decoration: none; }
 /* ---------- Contacto en tema oscuro ---------- */
 #contacto a:not(.btn) { color: var(--amber); }
 #contacto .btn--wa { border: 2px solid var(--line); }
+
+/* Tabla comparativa de planes */
+.table-wrap { overflow-x: auto; }
+.compare { width: 100%; border-collapse: collapse; font-size: 15px; min-width: 520px; }
+.compare caption { text-align: left; font-family: var(--font-head); font-weight: 600; font-size: 18px; padding-bottom: 12px; }
+.compare th, .compare td { text-align: left; padding: 12px 16px; border-bottom: 1px solid var(--line-soft); }
+.compare thead th { color: var(--amber); font-weight: 700; }
+.compare tbody th { font-weight: 600; color: var(--text-soft); }
+.compare td { color: var(--text-soft); }
