@@ -1,6 +1,6 @@
 // EstratoTech — comportamiento compartido (menú móvil, formulario, UF en pesos).
 // Turnstile (anti-spam de Cloudflare): pegar aquí la "site key" pública cuando se cree el widget. Vacío = sin Turnstile.
-const TURNSTILE_SITE_KEY = '';
+const TURNSTILE_SITE_KEY = '0x4AAAAAAF7UIdVqbvHsDecM';
 const MAIL_RESPALDO = 'contacto@estratotech.cl';
 // Cloudflare Web Analytics (sin cookies): pegar aquí el token del sitio cuando se cree en Cloudflare > Analytics & Logs > Web Analytics. Vacío = sin analítica.
 const CF_ANALYTICS_TOKEN = '';
