@@ -44,7 +44,7 @@ Antes de probar el formulario: crear la dirección `contacto@` en Email Routing 
 - [x] Barra de datos con cifras reales (4 empresas activas; actualizar el número en `site/pages/index.html` cuando cambie).
 - [ ] Logos y citas de clientes (todos autorizaron): falta recibir los archivos de logo y los textos de las citas (hay `TODO` en `site/partials/case-*.html`).
 - [ ] Foto de Carlos Quiroz para la sección Quiénes somos (`TODO` en `site/pages/index.html`).
-- [ ] Textos legales definitivos en `/terminos` y `/privacidad` (revisión del abogado; plazo Ley 21.719: 1 de diciembre de 2026).
+- [x] Textos legales definitivos en `/terminos` y `/privacidad` (nov 2026; revisados por abogado según Carlos). Si cambia lo que el sitio hace con los datos (analítica, nuevos proveedores), actualizarlos y la fecha.
 - [ ] Activar Turnstile (falta agregar el secreto `TURNSTILE_SECRET` tras el despliegue) y Web Analytics (pasos arriba). D1 ya está activa. `/privacidad` ya menciona el registro de contactos y el correo de confirmación; al activar la analítica, actualizarla para mencionar las estadísticas de visitas sin cookies.
 - [ ] Probar `/api/uf` (mindicador.cl) en el preview desplegado.
 - [ ] Publicar solo afirmaciones verificables: no prometer uptime/SLA, respaldos diarios ni plazos de implementación hasta que sean ciertos.
