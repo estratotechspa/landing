@@ -2,6 +2,7 @@
 :root {
   --ink: #0b1422;
   --ink-deep: #060c17;
+  --surface: #0f1a2e;
   --navy: #14213a;
   --line: #27405f;
   --line-soft: #1d3250;
@@ -37,10 +38,11 @@ a { color: inherit; }
 .s { padding: 96px 0; }
 .s--tight { padding: 56px 0; }
 .s--dark { background: var(--ink); }
-.s--navy { background: var(--navy); }
-.s--paper { background: var(--paper); color: var(--on-light); }
-.s--white { background: var(--white); color: var(--on-light); }
-.s--amber { background: var(--amber); color: var(--ink); }
+.s--navy { background: var(--surface); }
+.s--paper, .s--white { background: var(--surface); }
+main > section:nth-of-type(odd) { background: var(--ink); }
+main > section:nth-of-type(even) { background: var(--surface); }
+main > section + section { border-top: 1px solid var(--line-soft); }
 .stack { display: flex; flex-direction: column; gap: var(--gap, 20px); }
 .row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--gap, 14px); }
 .split { display: flex; flex-wrap: wrap; align-items: center; gap: 48px; }
@@ -50,17 +52,14 @@ a { color: inherit; }
 
 /* ---------- Tipografía ---------- */
 .eyebrow { font-size: 14px; letter-spacing: 1.8px; text-transform: uppercase; font-weight: 600; color: var(--amber); }
-.s--paper .eyebrow { color: var(--blue); }
 h1 { font-size: clamp(38px, 5.5vw, 68px); line-height: 1.08; letter-spacing: -2px; }
 h2 { font-size: clamp(30px, 4vw, 48px); line-height: 1.1; letter-spacing: -1.2px; }
 h3 { font-size: 22px; line-height: 1.25; font-weight: 600; }
 .accent { color: var(--amber); }
 .lead { font-size: 19px; line-height: 1.6; color: var(--muted); max-width: 620px; }
-.s--paper .lead, .s--white .lead { color: var(--on-light-soft); font-size: 18px; }
-.s--amber .lead { color: var(--ink); font-size: 18px; max-width: 460px; }
+.s--amber .lead, #contacto .lead { font-size: 18px; max-width: 460px; }
 .small { font-size: 15px; }
 .link { color: var(--amber); font-weight: 600; }
-.s--paper .link, .s--white .link { color: var(--blue); }
 
 /* ---------- Botones y chips ---------- */
 .btn { display: inline-block; font-weight: 700; font-size: 16px; text-decoration: none; text-align: center; padding: 16px 32px; border-radius: 999px; border: 2px solid transparent; cursor: pointer; font-family: inherit; }
@@ -68,13 +67,13 @@ h3 { font-size: 22px; line-height: 1.25; font-weight: 600; }
 .btn--primary { background: var(--amber); color: var(--ink); }
 .btn--outline { border-color: #5a6b85; color: var(--white); font-weight: 600; }
 .btn--outline-white { border-color: var(--white); color: var(--white); font-weight: 600; }
-.btn--dark { background: var(--on-light); color: var(--white); padding: 14px 28px; }
-.btn--outline-dark { border-color: var(--on-light); color: var(--on-light); font-size: 15px; padding: 12px 20px; }
-.btn--wa { background: var(--ink); color: var(--white); padding: 14px 24px; display: inline-flex; align-items: center; gap: 10px; }
+.btn--dark { background: var(--amber); color: var(--ink); padding: 14px 28px; }
+.btn--outline-dark { border-color: #5a6b85; color: var(--white); font-weight: 600; font-size: 15px; padding: 12px 20px; }
+.btn--wa { background: var(--navy); border-color: var(--line); color: var(--white); padding: 14px 24px; display: inline-flex; align-items: center; gap: 10px; }
 .btn--wa svg { color: var(--wa); }
 a.chip { text-decoration: none; }
 .chip { font-size: 13px; font-weight: 600; color: var(--text-soft); border: 1px solid var(--line); border-radius: 999px; padding: 6px 12px; }
-.chip--light { color: var(--on-light); background: var(--paper); border-color: var(--border-light); }
+.chip--light { color: var(--text-soft); background: transparent; border-color: var(--line); }
 .chips { display: flex; flex-wrap: wrap; gap: 8px; }
 .checks { display: flex; flex-wrap: wrap; gap: 10px 22px; font-size: 15px; font-weight: 600; }
 
@@ -107,33 +106,31 @@ a.chip { text-decoration: none; }
 .card__price { font-size: 15px; font-weight: 700; color: var(--amber); }
 .card--tall { min-height: 220px; }
 .card .link { margin-top: auto; font-size: 15px; }
-.tile { background: var(--white); border: 1px solid var(--border-light); border-radius: 16px; padding: 22px; display: flex; flex-direction: column; gap: 6px; }
+.tile { background: var(--navy); border: 1px solid var(--line-soft); border-radius: 16px; padding: 22px; display: flex; flex-direction: column; gap: 6px; }
 .tile h3 { font-size: 17px; font-weight: 600; }
-.tile p { font-size: 14px; color: var(--on-light-muted); line-height: 1.5; }
+.tile p { font-size: 14px; color: var(--muted); line-height: 1.5; }
 
 /* ---------- Datos ---------- */
 .stat__n { font-family: var(--font-head); font-weight: 700; font-size: 36px; letter-spacing: -1px; }
-.stat p { font-size: 15px; color: var(--on-light-muted); line-height: 1.5; margin-top: 6px; }
+.stat p { font-size: 15px; color: var(--muted); line-height: 1.5; margin-top: 6px; }
 
 /* ---------- Planes ---------- */
-.plan { border: 1px solid var(--border-light); border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 14px; background: var(--paper); }
+.plan { border: 1px solid var(--line-soft); border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 14px; background: var(--navy); }
 .plan h3 { font-size: 20px; font-weight: 600; }
 .plan__price { font-family: var(--font-head); font-weight: 700; font-size: 36px; }
-.plan__price small { font-family: var(--font-body); font-weight: 400; font-size: 14px; color: var(--on-light-muted); }
-.plan__clp { font-size: 13px; color: var(--on-light-muted); margin-top: -8px; }
-.plan ul { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 8px; font-size: 15px; color: var(--on-light-soft); }
+.plan__price small { font-family: var(--font-body); font-weight: 400; font-size: 14px; color: var(--muted); }
+.plan__clp { font-size: 13px; color: var(--muted); margin-top: -8px; }
+.plan ul { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 8px; font-size: 15px; color: var(--text-soft); }
 .plan .btn { margin-top: auto; }
-.plan--pro { background: var(--ink); color: var(--white); border: 0; }
-.plan--pro .plan__price small, .plan--pro .plan__clp { color: var(--muted); }
-.plan--pro ul { color: var(--text-soft); }
+.plan--pro { background: var(--navy); color: var(--white); border: 2px solid var(--amber); }
 .plan__head { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
 .badge { font-size: 12px; font-weight: 700; background: var(--amber); color: var(--ink); padding: 4px 10px; border-radius: 999px; }
 
 /* ---------- Casos ---------- */
-.case { background: var(--ink); color: var(--white); border-radius: 28px; padding: 40px; display: flex; flex-direction: column; gap: 16px; }
+.case { background: var(--navy); border: 1px solid var(--line-soft); color: var(--white); border-radius: 28px; padding: 40px; display: flex; flex-direction: column; gap: 16px; }
 .case h3 { font-size: 30px; letter-spacing: -0.8px; line-height: 1.15; font-weight: 700; }
 .case p { color: var(--muted); line-height: 1.6; font-size: 16px; }
-.case .eyebrow, .s--paper .case .eyebrow { font-size: 13px; letter-spacing: 1.4px; color: var(--amber); }
+.case .eyebrow { font-size: 13px; letter-spacing: 1.4px; color: var(--amber); }
 .case__metric { border-left: 3px solid var(--amber); padding-left: 16px; }
 .case__metric b { display: block; font-family: var(--font-head); font-size: 34px; color: var(--amber); line-height: 1.1; }
 .case__metric span { font-size: 14px; color: var(--muted); }
@@ -145,19 +142,21 @@ a.chip { text-decoration: none; }
 .avatar { flex: 0 1 220px; min-width: 160px; aspect-ratio: 1; border-radius: 28px; background: var(--line-soft); border: 1px solid var(--line); display: flex; align-items: center; justify-content: center; }
 
 /* ---------- Contacto ---------- */
-.form-box { background: var(--white); border-radius: 24px; padding: 32px; color: var(--ink); }
+.form-box { background: var(--navy); border: 1px solid var(--line); border-radius: 24px; padding: 32px; color: var(--white); }
 .form { display: flex; flex-direction: column; gap: 16px; }
 .field { display: flex; flex-direction: column; gap: 6px; flex: 1 1 180px; }
 .field label { font-size: 14px; font-weight: 600; }
-.field input, .field select, .field textarea { border: 1.5px solid var(--field-border); border-radius: 12px; font-size: 16px; font-family: var(--font-body); width: 100%; background: var(--white); color: var(--ink); }
+.field input, .field select, .field textarea { border: 1.5px solid var(--line); border-radius: 12px; font-size: 16px; font-family: var(--font-body); width: 100%; background: var(--ink); color: var(--white); }
+.field input::placeholder, .field textarea::placeholder { color: #8fa1b8; }
+.field select option { background: var(--ink); color: var(--white); }
 .field input, .field select { height: 48px; padding: 0 14px; }
 .field textarea { padding: 12px 14px; }
 .form > .field { flex: none; }
 .fields { display: flex; flex-wrap: wrap; gap: 16px; }
 .hp { position: absolute; left: -9999px; height: 0; overflow: hidden; }
-.form__legal { font-size: 13px; line-height: 1.5; color: var(--on-light-muted); }
-.form__legal a { color: var(--on-light); font-weight: 600; }
-.form__submit { height: 54px; border: 0; border-radius: 12px; background: var(--ink); color: var(--white); font: 700 16px var(--font-body); cursor: pointer; margin-top: 8px; }
+.form__legal { font-size: 13px; line-height: 1.5; color: var(--muted); }
+.form__legal a { color: var(--amber); font-weight: 600; }
+.form__submit { height: 54px; border: 0; border-radius: 12px; background: var(--amber); color: var(--ink); font: 700 16px var(--font-body); cursor: pointer; margin-top: 8px; }
 .form__submit:disabled { opacity: 0.7; cursor: wait; }
 .notice { border-radius: 12px; padding: 12px 14px; font-size: 14px; line-height: 1.5; }
 .notice--error { background: #fef2f2; border: 1px solid #fecaca; color: #991b1b; }
@@ -203,3 +202,7 @@ a.chip { text-decoration: none; }
   .wa-float { padding: 14px; right: 16px; bottom: 16px; }
   .wa-float span { display: none; }
 }
+
+/* ---------- Contacto en tema oscuro ---------- */
+#contacto a:not(.btn) { color: var(--amber); }
+#contacto .btn--wa { border: 2px solid var(--line); }
