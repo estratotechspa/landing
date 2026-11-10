@@ -78,7 +78,7 @@ for (const file of readdirSync(join(SITE, 'pages')).sort()) {
           .map(([t, d]) => `      <div class="tile"><h3>${escText(t)}</h3><p>${escText(d)}</p></div>`)
           .join('\n'),
         image: r.image
-          ? `<figure class="shot"><img src="${r.image}" width="1481" height="800" alt="${escAttr(r.imageAlt)}"></figure>`
+          ? `<figure class="shot"><picture><source media="(max-width: 600px)" srcset="/bitacora-viajes-movil.jpg" width="700" height="800"><img src="${r.image}" width="1481" height="800" alt="${escAttr(r.imageAlt)}"></picture></figure>`
           : '',
         caso: r.caso
           ? `<section class="s s--white" id="caso"><div class="wrap stack" style="--gap: 32px"><h2>Un caso real</h2><div class="grid" style="--min: 340px"><!--include:${r.caso}--></div></div></section>`
